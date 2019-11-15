@@ -143,6 +143,16 @@ namespace ProyectoFinalFerreteria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_error_de_impresora_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-error-de-impresora-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_google_web_search_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-google-web-search-24", resourceCulture);

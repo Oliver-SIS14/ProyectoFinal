@@ -38,7 +38,7 @@ namespace ProyectoFinalFerreteria.BLL
             contexto.Dispose();
         }
 
-        public bool Eliminar(int id)
+        public virtual bool Eliminar(int id)
         {
             bool paso = false;
 
@@ -56,7 +56,7 @@ namespace ProyectoFinalFerreteria.BLL
             return paso;
         }
 
-        public List<T> GetList(Expression<Func<T, bool>> expression)
+        public virtual List<T> GetList(Expression<Func<T, bool>> expression)
         {
             List<T> Lista = new List<T>();
 
@@ -71,7 +71,7 @@ namespace ProyectoFinalFerreteria.BLL
             return Lista;
         }
 
-        public bool Guardar(T entity)
+        public virtual bool Guardar(T entity)
         {
             bool paso = true;
 
@@ -88,7 +88,7 @@ namespace ProyectoFinalFerreteria.BLL
             return paso;
         }
 
-        public bool Modificar(T entity)
+        public virtual bool Modificar(T entity)
         {
             bool paso = false;
 

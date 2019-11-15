@@ -21,8 +21,8 @@ namespace ProyectoFinalFerreteria.UI.Consultas
 
         private void ConsultarButton_Click(object sender, EventArgs e)
         {
-            var Listado = new List<Factura>();
-            RepositorioBase<Factura> repo = new RepositorioBase<Factura>();
+            var Listado = new List<Facturas>();
+            RepositorioBase<Facturas> repo = new RepositorioBase<Facturas>();
 
             if(CriterioTextBox.Text.Trim().Length > 0)
             {
@@ -38,13 +38,6 @@ namespace ProyectoFinalFerreteria.UI.Consultas
                     case 2://Monto
                         decimal monto = Convert.ToDecimal(CriterioTextBox.Text);
                         Listado = repo.GetList(p => p.TotalGeneral == monto);
-                        break;
-                    case 3://Cliente
-                        Listado = repo.GetList(p => p.NombreCliente.Contains(CriterioTextBox.Text));
-                        break;
-                    case 4://IdCliente
-                        int idc = Convert.ToInt32(CriterioTextBox.Text);
-                        Listado = repo.GetList(p => p.Clienteid == idc);
                         break;
                 }
 

@@ -22,8 +22,8 @@ namespace ProyectoFinalFerreteria.UI.Consultas
         private void ConsultarButton_Click(object sender, EventArgs e)
         {
 
-            var Listado = new List<Articulo>();
-            RepositorioBase<Articulo> repo = new RepositorioBase<Articulo>();
+            var Listado = new List<Articulos>();
+            RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
             {

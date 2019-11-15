@@ -22,8 +22,8 @@ namespace ProyectoFinalFerreteria.UI.Consultas
         private void ConsultarButton_Click(object sender, EventArgs e)
         {
 
-            var Listado = new List<Cliente>();
-            RepositorioBase<Cliente> repo = new RepositorioBase<Cliente>();
+            var Listado = new List<Clientes>();
+            RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
@@ -37,10 +37,10 @@ namespace ProyectoFinalFerreteria.UI.Consultas
                         Listado = repo.GetList(p => p.Clienteid == id);
                         break;
                     case 2://Monto
-                        Listado = repo.GetList(p => p.Nombre.Contains(CriterioTextBox.Text));
+                        Listado = repo.GetList(p => p.Nombres.Contains(CriterioTextBox.Text));
                         break;
                     case 3://Cliente
-                        Listado = repo.GetList(p => p.Apellido.Contains(CriterioTextBox.Text));
+                        Listado = repo.GetList(p => p.Apellidos.Contains(CriterioTextBox.Text));
                         break;
                     case 4://IdCliente
                         Listado = repo.GetList(p => p.Codigo.Contains(CriterioTextBox.Text));

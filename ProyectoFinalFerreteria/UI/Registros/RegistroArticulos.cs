@@ -28,13 +28,13 @@ namespace ProyectoFinalFerreteria.UI.Registros
             PrecioNumericUpDown.Value = 0;
             InventarioNumericUpDown.Value = 0;
         }
-        public Articulo LlenarClase()
+        public Articulos LlenarClase()
         {
-            Articulo articulo = new Articulo();
+            Articulos articulo = new Articulos();
 
             articulo.Articuloid = Convert.ToInt32(IDNumericUpDown.Value);
             articulo.Unidad = UnidadComboBox.Text;
-            articulo.Precio = PrecioNumericUpDown.Value;
+            articulo.PrecioUnitario = PrecioNumericUpDown.Value;
             articulo.Inventario = Convert.ToInt32(InventarioNumericUpDown.Value);
             articulo.Codigo = CodigoMaskedTextBox.Text;
             articulo.Marca = MarcaTextBox.Text;
@@ -42,12 +42,12 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
             return articulo;
         }
-        public void LlenarCampo(Articulo articulo)
+        public void LlenarCampo(Articulos articulo)
         {
             IDNumericUpDown.Value = articulo.Articuloid;
             ArticuloTextBox.Text = articulo.Descripcion;
             UnidadComboBox.Text = articulo.Unidad;
-            PrecioNumericUpDown.Value = articulo.Precio;
+            PrecioNumericUpDown.Value = articulo.PrecioUnitario;
             InventarioNumericUpDown.Value = articulo.Inventario; 
             CodigoMaskedTextBox.Text = articulo.Codigo;
             MarcaTextBox.Text = articulo.Marca;
@@ -91,8 +91,8 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
         public bool ExisteEnLaBaseDeDatos()
         {
-            RepositorioBase<Articulo> repo = new RepositorioBase<Articulo>();
-            Articulo articulo = repo.Buscar((int)IDNumericUpDown.Value);
+            RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
+            Articulos articulo = repo.Buscar((int)IDNumericUpDown.Value);
             return articulo != null;
         }
         private void NuevoButton_Click(object sender, EventArgs e)
@@ -103,8 +103,8 @@ namespace ProyectoFinalFerreteria.UI.Registros
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             bool paso = false;
-            RepositorioBase<Articulo> repo = new RepositorioBase<Articulo>();
-            Articulo articulo = new Articulo();
+            RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
+            Articulos articulo = new Articulos();
 
             if (!Validar())
                 return;
@@ -133,8 +133,8 @@ namespace ProyectoFinalFerreteria.UI.Registros
         {
             int id = 0;
             int.TryParse(IDNumericUpDown.Text, out id);
-            RepositorioBase<Articulo> repo = new RepositorioBase<Articulo>();
-            Articulo articulo = repo.Buscar(id);
+            RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
+            Articulos articulo = repo.Buscar(id);
 
             Limpiar();
 
@@ -155,7 +155,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
             int id = 0;
             int.TryParse(IDNumericUpDown.Text, out id);
 
-            RepositorioBase<Articulo> repo = new RepositorioBase<Articulo>();
+            RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
 
 
             var Resultado = MessageBox.Show("Esta seguro que desea eliminar este Articulo", "Ferreteria Nelson", MessageBoxButtons.YesNo, MessageBoxIcon.Information);

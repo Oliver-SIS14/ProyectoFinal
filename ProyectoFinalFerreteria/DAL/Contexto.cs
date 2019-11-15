@@ -10,9 +10,9 @@ namespace ProyectoFinalFerreteria.DAL
 {
     public class Contexto : DbContext
     {
-        public DbSet<Factura> Facturas { get; set; }
-        public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Articulo> Articulos { get; set; }
+        public DbSet<Facturas> Facturas { get; set; }
+        public DbSet<Clientes> Clientes { get; set; }
+        public DbSet<Articulos> Articulos { get; set; }
 
         public Contexto() : base("ConStr") { }
     }
