@@ -201,6 +201,11 @@
             // PrecioNumericUpDown
             // 
             this.PrecioNumericUpDown.Location = new System.Drawing.Point(77, 176);
+            this.PrecioNumericUpDown.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.PrecioNumericUpDown.Name = "PrecioNumericUpDown";
             this.PrecioNumericUpDown.Size = new System.Drawing.Size(384, 20);
             this.PrecioNumericUpDown.TabIndex = 20;
@@ -208,6 +213,11 @@
             // InventarioNumericUpDown
             // 
             this.InventarioNumericUpDown.Location = new System.Drawing.Point(77, 202);
+            this.InventarioNumericUpDown.Maximum = new decimal(new int[] {
+            1215752192,
+            23,
+            0,
+            0});
             this.InventarioNumericUpDown.Name = "InventarioNumericUpDown";
             this.InventarioNumericUpDown.Size = new System.Drawing.Size(384, 20);
             this.InventarioNumericUpDown.TabIndex = 21;
@@ -223,7 +233,17 @@
             // 
             // UnidadComboBox
             // 
+            this.UnidadComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.UnidadComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UnidadComboBox.FormattingEnabled = true;
+            this.UnidadComboBox.Items.AddRange(new object[] {
+            "Libras",
+            "Sacos",
+            "Fundas",
+            "Paquetes",
+            "Unidades",
+            "Cajas",
+            "Quintales"});
             this.UnidadComboBox.Location = new System.Drawing.Point(77, 149);
             this.UnidadComboBox.Name = "UnidadComboBox";
             this.UnidadComboBox.Size = new System.Drawing.Size(383, 21);

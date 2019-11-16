@@ -32,6 +32,8 @@ namespace ProyectoFinalFerreteria.UI.Registros
             CelularMaskedTextBox.Text = string.Empty;
             EmailTextBox.Text = string.Empty;
             DepositoTextBox.Text = string.Empty;
+            BalanceTextBox.Text = string.Empty;
+            LimiteCreditoTextBox.Text = string.Empty;
 
             this.Cdetalle = new List<Facturas>();
         }
@@ -52,10 +54,12 @@ namespace ProyectoFinalFerreteria.UI.Registros
             cliente.Cedula = CedulaMaskedTextBox.Text;
             cliente.Direccion = DireccionTextBox.Text;
             cliente.Email = EmailTextBox.Text;
-         //   cliente.Balance = Convert.ToDecimal(BalanceTextBox.Text);
+            if (string.IsNullOrWhiteSpace(BalanceTextBox.Text))
+                BalanceTextBox.Text = "0";
+            cliente.Balance = Convert.ToDecimal(BalanceTextBox.Text);
             cliente.Telefono = TelefonoMaskedTextBox.Text;
             cliente.Celular = CelularMaskedTextBox.Text;
-        //    cliente.LimiteCredito = Convert.ToDecimal(LimiteCreditoTextBox.Text);
+            cliente.LimiteCredito = Convert.ToDecimal(LimiteCreditoTextBox.Text);
 
 
             return cliente;
@@ -71,10 +75,9 @@ namespace ProyectoFinalFerreteria.UI.Registros
             CelularMaskedTextBox.Text = cliente.Celular;
             DireccionTextBox.Text = cliente.Direccion;
             EmailTextBox.Text = cliente.Email;
-         //   BalanceTextBox.Text = cliente.Balance.ToString();
+            BalanceTextBox.Text = cliente.Balance.ToString();
             TelefonoMaskedTextBox.Text = cliente.Telefono;
-         //   LimiteCreditoTextBox.Text = cliente.LimiteCredito.ToString();
-
+            LimiteCreditoTextBox.Text = cliente.LimiteCredito.ToString();
         }
 
         public bool Validar()
@@ -130,8 +133,10 @@ namespace ProyectoFinalFerreteria.UI.Registros
         {
             bool paso = false;
             RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
+            RepositorioCliente repoc = new RepositorioCliente();
             Clientes cliente = new Clientes();
 
+            
             if (!Validar())
                 return;
 
@@ -150,11 +155,12 @@ namespace ProyectoFinalFerreteria.UI.Registros
             }
 
             if (paso)
+            {
                 MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpiar();
+            }
             else
-                MessageBox.Show("No fue posible guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            
+                MessageBox.Show("No fue posible guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);   
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
@@ -185,10 +191,10 @@ namespace ProyectoFinalFerreteria.UI.Registros
             int.TryParse(IDNumericUpDown.Text, out id);
 
             RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
-
+            
 
             var Resultado = MessageBox.Show("Esta seguro que desea eliminar este cliente", "Ferreteria Nelson", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
+            Limpiar();
             if (Resultado == DialogResult.Yes)
             {
                 if (repo.Buscar(id) != null)

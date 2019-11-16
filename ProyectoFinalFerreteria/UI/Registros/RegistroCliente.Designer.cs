@@ -315,7 +315,6 @@
             this.LimiteCreditoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LimiteCreditoTextBox.Location = new System.Drawing.Point(122, 337);
             this.LimiteCreditoTextBox.Name = "LimiteCreditoTextBox";
-            this.LimiteCreditoTextBox.ReadOnly = true;
             this.LimiteCreditoTextBox.Size = new System.Drawing.Size(418, 21);
             this.LimiteCreditoTextBox.TabIndex = 42;
             // 

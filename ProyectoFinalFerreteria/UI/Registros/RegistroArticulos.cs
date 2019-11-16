@@ -124,7 +124,11 @@ namespace ProyectoFinalFerreteria.UI.Registros
             }
 
             if (paso)
+            {
                 MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpiar();
+            }
+
             else
                 MessageBox.Show("No fue posible guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -159,7 +163,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
 
             var Resultado = MessageBox.Show("Esta seguro que desea eliminar este Articulo", "Ferreteria Nelson", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
+            Limpiar();
             if (Resultado == DialogResult.Yes)
             {
                 if (repo.Buscar(id) != null)

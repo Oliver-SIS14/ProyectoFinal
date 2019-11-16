@@ -288,6 +288,7 @@
             this.CantidadNumericUpDown.Name = "CantidadNumericUpDown";
             this.CantidadNumericUpDown.Size = new System.Drawing.Size(92, 20);
             this.CantidadNumericUpDown.TabIndex = 14;
+            this.CantidadNumericUpDown.ValueChanged += new System.EventHandler(this.CantidadNumericUpDown_ValueChanged);
             // 
             // BuscarArticuloButton
             // 
@@ -307,7 +308,8 @@
             this.DescripcionComboBox.Name = "DescripcionComboBox";
             this.DescripcionComboBox.Size = new System.Drawing.Size(241, 21);
             this.DescripcionComboBox.TabIndex = 10;
-           //
+            this.DescripcionComboBox.SelectedValueChanged += new System.EventHandler(this.DescripcionComboBox_SelectedValueChanged);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -507,7 +509,7 @@
             // 
             this.ImprimirButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImprimirButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.icons8_error_de_impresora_30;
-            this.ImprimirButton.Location = new System.Drawing.Point(474, 573);
+            this.ImprimirButton.Location = new System.Drawing.Point(483, 552);
             this.ImprimirButton.Name = "ImprimirButton";
             this.ImprimirButton.Size = new System.Drawing.Size(133, 52);
             this.ImprimirButton.TabIndex = 28;
@@ -529,7 +531,7 @@
             // 
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.NuevoIcon__1_;
-            this.NuevoButton.Location = new System.Drawing.Point(12, 573);
+            this.NuevoButton.Location = new System.Drawing.Point(12, 552);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(133, 52);
             this.NuevoButton.TabIndex = 22;
@@ -542,7 +544,7 @@
             // 
             this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuardarButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.GuardarIcon__1_;
-            this.GuardarButton.Location = new System.Drawing.Point(240, 573);
+            this.GuardarButton.Location = new System.Drawing.Point(240, 552);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(133, 52);
             this.GuardarButton.TabIndex = 21;
@@ -555,7 +557,7 @@
             // 
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.borradoricon;
-            this.EliminarButton.Location = new System.Drawing.Point(695, 573);
+            this.EliminarButton.Location = new System.Drawing.Point(695, 552);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(133, 52);
             this.EliminarButton.TabIndex = 20;
@@ -594,7 +596,7 @@
             "Quintales",
             "Camiones",
             "Laminas"});
-            this.comboBox1.Location = new System.Drawing.Point(371, 640);
+            this.comboBox1.Location = new System.Drawing.Point(360, 617);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(199, 21);
             this.comboBox1.TabIndex = 29;
@@ -603,7 +605,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(308, 641);
+            this.label5.Location = new System.Drawing.Point(297, 618);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 15);
             this.label5.TabIndex = 30;

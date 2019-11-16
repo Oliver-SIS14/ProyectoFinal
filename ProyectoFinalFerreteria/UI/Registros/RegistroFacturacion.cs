@@ -100,6 +100,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
             Clientes cliente = repo.Buscar(factura.Clienteid);
 
+            if(cliente!=null)
             factura.Balance = cliente.Balance;
             factura.Articulos = this.detalle;
 
@@ -129,6 +130,29 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
         }
 
+        public bool VerificarLimiteCredito()
+        {
+            bool paso = true;
+            string Id = ClienteComboBox.SelectedValue.ToString();
+
+            RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
+
+            Clientes cliente = repo.Buscar(Convert.ToInt32(Id));
+
+            if(cliente.LimiteCredito == 0)
+            {
+                MessageBox.Show("El cliente ha excedido su limite de credito", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                paso = false;
+            }
+
+            if(cliente.LimiteCredito - Convert.ToDecimal(TotalGeneralTextBox.Text) < 0)
+            {
+                MessageBox.Show("El cliente ha excedido su limite de credito", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                paso = false;
+            }
+
+            return paso;
+        }
 
         public bool Validar()
         {
@@ -149,6 +173,13 @@ namespace ProyectoFinalFerreteria.UI.Registros
                 AgregarAlGridButton.Focus();
                 paso = false;
             }
+
+            if (!VerificarLimiteCredito())
+            {
+                MyErrorProvider.SetError(ClienteComboBox, "El cliente ha excedido su limite de credito");
+                ClienteComboBox.Focus();
+                paso = false;
+            }
             return paso;
         }
 
@@ -160,7 +191,6 @@ namespace ProyectoFinalFerreteria.UI.Registros
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             bool paso = false;
-            RepositorioBase<Facturas> repo = new RepositorioBase<Facturas>();
             RepositorioFactura repof = new RepositorioFactura();
 
             Facturas factura = new Facturas();
@@ -172,7 +202,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
             int Id = Convert.ToInt32(ClienteComboBox.SelectedValue.ToString());
 
-            BalanceTextBox.Text = Id.ToString();
+
             if (IDNumericUpDown.Value == 0)
                 paso = repof.Guardar(factura,Id);
             else
@@ -182,11 +212,15 @@ namespace ProyectoFinalFerreteria.UI.Registros
                     MessageBox.Show("No se puede modificar", "Facturacion no registrada", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                paso = repo.Modificar(factura);
+                paso = repof.Modificar(factura,Id);
             }
 
             if (paso)
+            {
                 MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpiar();
+            }
+
             else
                 MessageBox.Show("No fue posible guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -219,6 +253,8 @@ namespace ProyectoFinalFerreteria.UI.Registros
             int.TryParse(IDNumericUpDown.Text, out id);
 
             RepositorioBase<Facturas> repo = new RepositorioBase<Facturas>();
+
+            Limpiar();
 
             if (repo.Buscar(id) != null)
             {
@@ -327,12 +363,37 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
         private void ClienteComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
+         /*   LlenarComboBoxCliente();
 
-         //   int id = Convert.ToInt32(ClienteComboBox.SelectedValue.ToString());
-            Clientes cliente = repo.Buscar(1);
+            int id = Convert.ToInt32(ClienteComboBox.SelectedValue.ToString());
+            RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
+            Clientes cliente = repo.Buscar(id);
 
             BalanceTextBox.Text = cliente.Balance.ToString();
+            */
+        }
+
+        private void CantidadNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            RepositorioBase<Articulos> repo2 = new RepositorioBase<Articulos>();
+            RepositorioBase<Clientes> repo3 = new RepositorioBase<Clientes>();
+
+            string Id = DescripcionComboBox.SelectedValue.ToString();
+            string Id2 = ClienteComboBox.SelectedValue.ToString();
+
+                Articulos articulo = repo2.Buscar(Convert.ToInt32(Id));
+                Clientes cliente = repo3.Buscar(Convert.ToInt32(Id2));
+
+                    BalanceTextBox.Text = cliente.Balance.ToString();
+                    PrecioUnitarioTextBox.Text = articulo.PrecioUnitario.ToString();
+                    UnidadComboBox.Text = articulo.Unidad.ToString();
+                    CantidadNumericUpDown.Maximum = articulo.Inventario;
+                    ImporteTextBox.Text = (articulo.PrecioUnitario * ((decimal)CantidadNumericUpDown.Value)).ToString();    
+            
+        }
+
+        private void DescripcionComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
         }
     }
 }
