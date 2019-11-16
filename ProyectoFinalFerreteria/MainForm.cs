@@ -1,5 +1,6 @@
 ﻿using ProyectoFinalFerreteria.UI.Consultas;
 using ProyectoFinalFerreteria.UI.Registros;
+using ProyectoFinalFerreteria.UI.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,6 +58,25 @@ namespace ProyectoFinalFerreteria
         private void ArticulosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form formulario = new ConsultaProducto();
+            formulario.MdiParent = this;
+            formulario.Show();
+        }
+
+        private void VentasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form formulario = new ReporteVentasDiarias(ReporteVentasDiarias.ListaFacturas);
+            formulario.MdiParent = this;
+            formulario.Show();
+        }
+
+        private void ClientesToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ArticulosMasVendidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formulario = new ReporteArticulosPocoStock(ReporteArticulosPocoStock.ListaArticulos);
             formulario.MdiParent = this;
             formulario.Show();
         }

@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -96,7 +97,11 @@ namespace ProyectoFinalFerreteria.UI.Registros
             factura.ITBIS = Convert.ToDecimal(ITBISTextBox.Text);
             factura.CantidadArticulos = Convert.ToInt32(CantidadArticulosTextBox.Text);
             factura.TotalGeneral = Convert.ToDecimal(TotalGeneralTextBox.Text);
-            factura.Descuentos = Convert.ToDecimal(DescuentosTextBox.Text);
+
+            if (string.IsNullOrWhiteSpace(DescuentosTextBox.Text))
+                factura.Descuentos = 0;
+            else
+                factura.Descuentos = Convert.ToDecimal(DescuentosTextBox.Text);
 
             Clientes cliente = repo.Buscar(factura.Clienteid);
 
@@ -316,12 +321,16 @@ namespace ProyectoFinalFerreteria.UI.Registros
         {
             Form formulario = new RegistroCliente();
             formulario.ShowDialog();
+
+            LlenarComboBoxCliente();
         }
 
         private void BuscarArticuloButton_Click(object sender, EventArgs e)
         {
             Form formulario = new RegistroArticulos();
             formulario.ShowDialog();
+
+            LlenarComboBoxArticulo();
         }
 
         private void RemoverButton_Click(object sender, EventArgs e)
@@ -349,6 +358,11 @@ namespace ProyectoFinalFerreteria.UI.Registros
             CantidadArticulosTextBox.Text = Convert.ToString(this.detalle.Count);
 
         }
+        public int RetornaId()
+        {
+            int Id = Convert.ToInt32(ClienteComboBox.SelectedValue.ToString());
+            return Id;
+        }
 
         private void RegistroFacturacion_Load(object sender, EventArgs e)
         {
@@ -363,14 +377,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
         private void ClienteComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-         /*   LlenarComboBoxCliente();
-
-            int id = Convert.ToInt32(ClienteComboBox.SelectedValue.ToString());
-            RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
-            Clientes cliente = repo.Buscar(id);
-
-            BalanceTextBox.Text = cliente.Balance.ToString();
-            */
+            BalanceTextBox.Text = string.Empty;
         }
 
         private void CantidadNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -384,16 +391,17 @@ namespace ProyectoFinalFerreteria.UI.Registros
                 Articulos articulo = repo2.Buscar(Convert.ToInt32(Id));
                 Clientes cliente = repo3.Buscar(Convert.ToInt32(Id2));
 
-                    BalanceTextBox.Text = cliente.Balance.ToString();
-                    PrecioUnitarioTextBox.Text = articulo.PrecioUnitario.ToString();
-                    UnidadComboBox.Text = articulo.Unidad.ToString();
-                    CantidadNumericUpDown.Maximum = articulo.Inventario;
-                    ImporteTextBox.Text = (articulo.PrecioUnitario * ((decimal)CantidadNumericUpDown.Value)).ToString();    
-            
+                BalanceTextBox.Text = cliente.Balance.ToString();
+                PrecioUnitarioTextBox.Text = articulo.PrecioUnitario.ToString();
+                UnidadComboBox.Text = articulo.Unidad.ToString();
+                CantidadNumericUpDown.Maximum = articulo.Inventario;
+                ImporteTextBox.Text = (articulo.PrecioUnitario * ((decimal)CantidadNumericUpDown.Value)).ToString();
         }
 
         private void DescripcionComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
+            BalanceTextBox.Text = string.Empty;
+            CantidadNumericUpDown.Value = 0;
         }
     }
 }

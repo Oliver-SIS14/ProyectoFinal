@@ -1,5 +1,6 @@
 ﻿using ProyectoFinalFerreteria.BLL;
 using ProyectoFinalFerreteria.Entidades;
+using ProyectoFinalFerreteria.UI.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,6 +48,7 @@ namespace ProyectoFinalFerreteria.UI.Consultas
             {
                 Listado = repo.GetList(p => true);
             }
+
             VentasDataGridView.DataSource = null;
             VentasDataGridView.DataSource = Listado;
         }
