@@ -50,6 +50,7 @@
             this.Controls.Add(this.ClientesReportViewer);
             this.Name = "ReporteClientesConDeudas";
             this.Text = "ReporteClientesConDeudas";
+            this.Load += new System.EventHandler(this.ReporteClientesConDeudas_Load);
             this.ResumeLayout(false);
 
         }

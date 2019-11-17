@@ -43,7 +43,7 @@
             // 
             // ClientesDataGridView
             // 
-            this.ClientesDataGridView.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
+            this.ClientesDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ClientesDataGridView.Location = new System.Drawing.Point(16, 60);
             this.ClientesDataGridView.Name = "ClientesDataGridView";

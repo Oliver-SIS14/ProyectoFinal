@@ -78,6 +78,12 @@ namespace ProyectoFinalFerreteria.UI.Registros
             ITBISTextBox.Text = string.Empty;
             TotalGeneralTextBox.Text = string.Empty;
             CantidadArticulosTextBox.Text = string.Empty;
+            CantidadNumericUpDown.Value = 0;
+            CantidadNumericUpDown.Refresh();
+            UnidadTextBox.Text = string.Empty;
+            PrecioUnitarioTextBox.Text = string.Empty;
+            ImporteTextBox.Text = string.Empty;
+            BalanceTextBox.Text = string.Empty;
 
             this.detalle = new List<FacturaDetalle>();
 
@@ -393,7 +399,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
                 BalanceTextBox.Text = cliente.Balance.ToString();
                 PrecioUnitarioTextBox.Text = articulo.PrecioUnitario.ToString();
-                UnidadComboBox.Text = articulo.Unidad.ToString();
+                UnidadTextBox.Text = articulo.Unidad.ToString();
                 CantidadNumericUpDown.Maximum = articulo.Inventario;
                 ImporteTextBox.Text = (articulo.PrecioUnitario * ((decimal)CantidadNumericUpDown.Value)).ToString();
         }

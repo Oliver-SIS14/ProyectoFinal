@@ -35,6 +35,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
             BalanceTextBox.Text = string.Empty;
             LimiteCreditoTextBox.Text = string.Empty;
 
+
             this.Cdetalle = new List<Facturas>();
         }
 
@@ -55,11 +56,15 @@ namespace ProyectoFinalFerreteria.UI.Registros
             cliente.Direccion = DireccionTextBox.Text;
             cliente.Email = EmailTextBox.Text;
             if (string.IsNullOrWhiteSpace(BalanceTextBox.Text))
-                BalanceTextBox.Text = "0";
-            cliente.Balance = Convert.ToDecimal(BalanceTextBox.Text);
+            
+               BalanceTextBox.Text = "0";
+           
+            if (string.IsNullOrWhiteSpace(DepositoTextBox.Text))
+                DepositoTextBox.Text = "0";
+            cliente.Balance = Convert.ToDecimal(BalanceTextBox.Text) - Convert.ToDecimal(DepositoTextBox.Text);
             cliente.Telefono = TelefonoMaskedTextBox.Text;
             cliente.Celular = CelularMaskedTextBox.Text;
-            cliente.LimiteCredito = Convert.ToDecimal(LimiteCreditoTextBox.Text);
+            cliente.LimiteCredito = Convert.ToDecimal(LimiteCreditoTextBox.Text) - cliente.Balance + Convert.ToDecimal(DepositoTextBox.Text);
 
 
             return cliente;
@@ -132,8 +137,8 @@ namespace ProyectoFinalFerreteria.UI.Registros
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             bool paso = false;
+            RepositorioBase<Facturas> repof = new RepositorioBase<Facturas>();
             RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
-            RepositorioCliente repoc = new RepositorioCliente();
             Clientes cliente = new Clientes();
 
             
@@ -210,6 +215,19 @@ namespace ProyectoFinalFerreteria.UI.Registros
                 }
             }
 
+        }
+
+        private void BalanceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(BalanceTextBox.Text) || BalanceTextBox.Text == "0,00")
+            {
+                DepositoTextBox.Text = "0,00";
+                DepositoTextBox.ReadOnly = true;
+            }
+            else
+            {
+                DepositoTextBox.ReadOnly = false;
+            }
         }
     }
 }

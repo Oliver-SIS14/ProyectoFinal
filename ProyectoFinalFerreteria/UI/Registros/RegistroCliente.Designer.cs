@@ -124,6 +124,7 @@
             this.BalanceTextBox.ReadOnly = true;
             this.BalanceTextBox.Size = new System.Drawing.Size(418, 21);
             this.BalanceTextBox.TabIndex = 21;
+            this.BalanceTextBox.TextChanged += new System.EventHandler(this.BalanceTextBox_TextChanged);
             // 
             // NuevoButton
             // 

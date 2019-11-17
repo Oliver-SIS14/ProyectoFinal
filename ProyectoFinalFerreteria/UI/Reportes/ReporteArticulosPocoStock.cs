@@ -28,6 +28,8 @@ namespace ProyectoFinalFerreteria.UI.Reportes
 
             ListaArticulos = repo.GetList(p => true);
 
+            ListaArticulos = ListaArticulos.Where(c => c.Inventario <= 5).ToList();
+
             listaf.SetDataSource(ListaArticulos);
 
             ArticulosReportViewer.ReportSource = listaf;

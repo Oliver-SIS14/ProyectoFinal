@@ -71,7 +71,9 @@ namespace ProyectoFinalFerreteria
 
         private void ClientesToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
+            Form formulario = new ReporteClientesConDeudas(ReporteClientesConDeudas.ListaClientes);
+            formulario.MdiParent = this;
+            formulario.Show();
         }
 
         private void ArticulosMasVendidosToolStripMenuItem_Click(object sender, EventArgs e)

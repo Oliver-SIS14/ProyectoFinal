@@ -1,4 +1,5 @@
 ﻿using ProyectoFinalFerreteria.Entidades;
+using ProyectoFinalFerreteria.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace ProyectoFinalFerreteria.BLL
             
             cliente.Balance += factura.TotalGeneral;
             cliente.LimiteCredito -= factura.TotalGeneral;
+
             repo.Modificar(cliente); //Afecta el balance
 
 

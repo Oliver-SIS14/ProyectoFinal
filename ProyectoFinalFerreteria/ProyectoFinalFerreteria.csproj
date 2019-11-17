@@ -66,7 +66,6 @@
   <ItemGroup>
     <Compile Include="BLL\IRepository.cs" />
     <Compile Include="BLL\RepositorioBase.cs" />
-    <Compile Include="BLL\RepositorioCliente.cs" />
     <Compile Include="BLL\RepositorioFactura.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Entidades\Articulos.cs" />
@@ -117,6 +116,12 @@
     </Compile>
     <Compile Include="UI\Registros\RegistroFacturacion.Designer.cs">
       <DependentUpon>RegistroFacturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ClientesConDeudas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientesConDeudas.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Reportes\ReporteArticulosAgotados.cs">
       <AutoGen>True</AutoGen>
@@ -178,6 +183,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\RegistroFacturacion.resx">
       <DependentUpon>RegistroFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ClientesConDeudas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ClientesConDeudas.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ReporteArticulosAgotados.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

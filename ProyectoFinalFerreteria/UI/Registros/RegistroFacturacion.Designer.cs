@@ -46,7 +46,6 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImporteTextBox = new System.Windows.Forms.TextBox();
-            this.UnidadComboBox = new System.Windows.Forms.ComboBox();
             this.CantidadNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.BuscarArticuloButton = new System.Windows.Forms.Button();
             this.DescripcionComboBox = new System.Windows.Forms.ComboBox();
@@ -82,6 +81,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.UnidadTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.IDNumericUpDown)).BeginInit();
             this.ArticulosGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DetalleDataGridView)).BeginInit();
@@ -145,12 +145,12 @@
             // ArticulosGroupBox
             // 
             this.ArticulosGroupBox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.ArticulosGroupBox.Controls.Add(this.UnidadTextBox);
             this.ArticulosGroupBox.Controls.Add(this.PrecioUnitarioTextBox);
             this.ArticulosGroupBox.Controls.Add(this.AgregarAlGridButton);
             this.ArticulosGroupBox.Controls.Add(this.RemoverButton);
             this.ArticulosGroupBox.Controls.Add(this.DetalleDataGridView);
             this.ArticulosGroupBox.Controls.Add(this.ImporteTextBox);
-            this.ArticulosGroupBox.Controls.Add(this.UnidadComboBox);
             this.ArticulosGroupBox.Controls.Add(this.CantidadNumericUpDown);
             this.ArticulosGroupBox.Controls.Add(this.BuscarArticuloButton);
             this.ArticulosGroupBox.Controls.Add(this.DescripcionComboBox);
@@ -254,27 +254,6 @@
             this.ImporteTextBox.ReadOnly = true;
             this.ImporteTextBox.Size = new System.Drawing.Size(109, 20);
             this.ImporteTextBox.TabIndex = 17;
-            // 
-            // UnidadComboBox
-            // 
-            this.UnidadComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.UnidadComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UnidadComboBox.FormattingEnabled = true;
-            this.UnidadComboBox.Items.AddRange(new object[] {
-            "Cajas",
-            "Fundas",
-            "Paquetes",
-            "Unidad",
-            "Sacos",
-            "Libras",
-            "Kilos",
-            "Quintales",
-            "Camiones",
-            "Laminas"});
-            this.UnidadComboBox.Location = new System.Drawing.Point(415, 44);
-            this.UnidadComboBox.Name = "UnidadComboBox";
-            this.UnidadComboBox.Size = new System.Drawing.Size(96, 21);
-            this.UnidadComboBox.TabIndex = 15;
             // 
             // CantidadNumericUpDown
             // 
@@ -648,6 +627,14 @@
             this.richTextBox1.TabIndex = 34;
             this.richTextBox1.Text = "";
             // 
+            // UnidadTextBox
+            // 
+            this.UnidadTextBox.Location = new System.Drawing.Point(415, 44);
+            this.UnidadTextBox.Name = "UnidadTextBox";
+            this.UnidadTextBox.ReadOnly = true;
+            this.UnidadTextBox.Size = new System.Drawing.Size(100, 21);
+            this.UnidadTextBox.TabIndex = 22;
+            // 
             // RegistroFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -720,7 +707,6 @@
         private System.Windows.Forms.Button RemoverButton;
         private System.Windows.Forms.DataGridView DetalleDataGridView;
         private System.Windows.Forms.TextBox ImporteTextBox;
-        private System.Windows.Forms.ComboBox UnidadComboBox;
         private System.Windows.Forms.NumericUpDown CantidadNumericUpDown;
         private System.Windows.Forms.Button BuscarArticuloButton;
         private System.Windows.Forms.Label label14;
@@ -757,5 +743,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox UnidadTextBox;
     }
 }
