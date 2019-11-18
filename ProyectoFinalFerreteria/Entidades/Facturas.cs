@@ -15,10 +15,13 @@ namespace ProyectoFinalFerreteria.Entidades
         public string TipoFactura { get; set; }
         public DateTime Fecha { get; set; }
         public decimal Descuentos { get; set; }
-        public decimal ITBIS { get; set; }
+        public virtual decimal ITBIS { get; set; }
+        public decimal SubTotal { get; set; }
         public decimal TotalGeneral { get; set; }
         public int CantidadArticulos { get; set; }
         public decimal Balance { get; set; }
+        public string Comentarios { get; set; }
+        public int Usuarioid { get; set; }
         public virtual List<FacturaDetalle> Articulos { get; set; }
 
         public Facturas()

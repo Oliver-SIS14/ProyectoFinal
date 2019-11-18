@@ -14,6 +14,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
 {
     public partial class RegistroCliente : Form
     {
+        Validacion v = new Validacion();
         public List<Facturas>Cdetalle { get; set; }
         public RegistroCliente()
         {
@@ -65,7 +66,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
             cliente.Telefono = TelefonoMaskedTextBox.Text;
             cliente.Celular = CelularMaskedTextBox.Text;
             cliente.LimiteCredito = Convert.ToDecimal(LimiteCreditoTextBox.Text) - cliente.Balance + Convert.ToDecimal(DepositoTextBox.Text);
-
+            cliente.Usuarioid = Login.Usuarioid;
 
             return cliente;
         }
@@ -83,6 +84,10 @@ namespace ProyectoFinalFerreteria.UI.Registros
             BalanceTextBox.Text = cliente.Balance.ToString();
             TelefonoMaskedTextBox.Text = cliente.Telefono;
             LimiteCreditoTextBox.Text = cliente.LimiteCredito.ToString();
+            RepositorioBase<Usuario> repou = new RepositorioBase<Usuario>();
+
+            Usuario usuario = repou.Buscar(Login.Usuarioid);
+            UsuarioTextBox.Text = usuario.User;
         }
 
         public bool Validar()
@@ -196,7 +201,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
             int.TryParse(IDNumericUpDown.Text, out id);
 
             RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
-            
+            RepositorioCliente repoc = new RepositorioCliente();
 
             var Resultado = MessageBox.Show("Esta seguro que desea eliminar este cliente", "Ferreteria Nelson", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             Limpiar();
@@ -204,7 +209,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
             {
                 if (repo.Buscar(id) != null)
                 {
-                    if (repo.Eliminar(id))
+                    if (repoc.Eliminar(id))
                         MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
                         MessageBox.Show("No se pudo eliminar este registro", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -228,6 +233,35 @@ namespace ProyectoFinalFerreteria.UI.Registros
             {
                 DepositoTextBox.ReadOnly = false;
             }
+        }
+
+        private void RegistroCliente_Load(object sender, EventArgs e)
+        {
+
+            RepositorioBase<Usuario> repou = new RepositorioBase<Usuario>();
+
+            Usuario usuario = repou.Buscar(Login.Usuarioid);
+            UsuarioTextBox.Text = usuario.User;
+        }
+
+        private void NombreTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.SoloLetras(e);
+        }
+
+        private void ApellidoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.SoloLetras(e);
+        }
+
+        private void DepositoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.SoloNumeros(e);
+        }
+
+        private void LimiteCreditoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.SoloNumeros(e);
         }
     }
 }

@@ -83,6 +83,16 @@ namespace ProyectoFinalFerreteria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _669cbf70_fad9_465f_9024_dbe779f3d527_200x200BeFunky__2_ {
+            get {
+                object obj = ResourceManager.GetObject("669cbf70-fad9-465f-9024-dbe779f3d527_200x200BeFunky (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Asset_FNelsonArreglada {
             get {
                 object obj = ResourceManager.GetObject("Asset_FNelsonArreglada", resourceCulture);

@@ -24,13 +24,14 @@ namespace ProyectoFinalFerreteria.UI.Reportes
         private void ReporteClientesConDeudas_Load(object sender, EventArgs e)
         {
             RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
-            ClientesConDeudas listaf = new ClientesConDeudas();
+            ClientesConDeuda listaf = new ClientesConDeuda();
 
             ListaClientes = repo.GetList(p => true);
 
             ListaClientes = ListaClientes.Where(c => c.Balance != 0).ToList();
 
             listaf.SetDataSource(ListaClientes);
+            
 
             ClientesReportViewer.ReportSource = listaf;
             ClientesReportViewer.Refresh();

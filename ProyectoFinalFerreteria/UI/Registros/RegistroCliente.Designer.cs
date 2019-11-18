@@ -58,6 +58,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.LimiteCreditoTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.UsuarioTextBox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDNumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -107,6 +109,7 @@
             this.ApellidoTextBox.Name = "ApellidoTextBox";
             this.ApellidoTextBox.Size = new System.Drawing.Size(418, 20);
             this.ApellidoTextBox.TabIndex = 17;
+            this.ApellidoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApellidoTextBox_KeyPress);
             // 
             // NombreTextBox
             // 
@@ -115,6 +118,7 @@
             this.NombreTextBox.Name = "NombreTextBox";
             this.NombreTextBox.Size = new System.Drawing.Size(418, 20);
             this.NombreTextBox.TabIndex = 18;
+            this.NombreTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreTextBox_KeyPress);
             // 
             // BalanceTextBox
             // 
@@ -272,7 +276,7 @@
             // 
             this.CelularMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CelularMaskedTextBox.Location = new System.Drawing.Point(122, 230);
-            this.CelularMaskedTextBox.Mask = "000-0000000-0";
+            this.CelularMaskedTextBox.Mask = "000-000-0000";
             this.CelularMaskedTextBox.Name = "CelularMaskedTextBox";
             this.CelularMaskedTextBox.Size = new System.Drawing.Size(418, 20);
             this.CelularMaskedTextBox.TabIndex = 37;
@@ -284,6 +288,7 @@
             this.DepositoTextBox.Name = "DepositoTextBox";
             this.DepositoTextBox.Size = new System.Drawing.Size(418, 21);
             this.DepositoTextBox.TabIndex = 38;
+            this.DepositoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DepositoTextBox_KeyPress);
             // 
             // label10
             // 
@@ -318,6 +323,7 @@
             this.LimiteCreditoTextBox.Name = "LimiteCreditoTextBox";
             this.LimiteCreditoTextBox.Size = new System.Drawing.Size(418, 21);
             this.LimiteCreditoTextBox.TabIndex = 42;
+            this.LimiteCreditoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LimiteCreditoTextBox_KeyPress);
             // 
             // label12
             // 
@@ -328,12 +334,33 @@
             this.label12.TabIndex = 43;
             this.label12.Text = "Limite de credito";
             // 
+            // UsuarioTextBox
+            // 
+            this.UsuarioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsuarioTextBox.Location = new System.Drawing.Point(248, 459);
+            this.UsuarioTextBox.Name = "UsuarioTextBox";
+            this.UsuarioTextBox.ReadOnly = true;
+            this.UsuarioTextBox.Size = new System.Drawing.Size(167, 20);
+            this.UsuarioTextBox.TabIndex = 44;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(185, 460);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 15);
+            this.label13.TabIndex = 45;
+            this.label13.Text = "Usuario";
+            // 
             // RegistroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ClientSize = new System.Drawing.Size(549, 453);
+            this.ClientSize = new System.Drawing.Size(549, 491);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.UsuarioTextBox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.LimiteCreditoTextBox);
             this.Controls.Add(this.label11);
@@ -365,6 +392,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "RegistroCliente";
             this.Text = "Registro (Clientes)";
+            this.Load += new System.EventHandler(this.RegistroCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDNumericUpDown)).EndInit();
             this.ResumeLayout(false);
@@ -403,5 +431,7 @@
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox LimiteCreditoTextBox;
+        private System.Windows.Forms.TextBox UsuarioTextBox;
+        private System.Windows.Forms.Label label13;
     }
 }

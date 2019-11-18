@@ -14,6 +14,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
 {
     public partial class RegistroArticulos : Form
     {
+        Validacion v = new Validacion();
         public RegistroArticulos()
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
             articulo.Codigo = CodigoMaskedTextBox.Text;
             articulo.Marca = MarcaTextBox.Text;
             articulo.Descripcion = ArticuloTextBox.Text;
+            articulo.Usuarioid = Login.Usuarioid;
 
             return articulo;
         }
@@ -51,6 +53,11 @@ namespace ProyectoFinalFerreteria.UI.Registros
             InventarioNumericUpDown.Value = articulo.Inventario; 
             CodigoMaskedTextBox.Text = articulo.Codigo;
             MarcaTextBox.Text = articulo.Marca;
+
+            RepositorioBase<Usuario> repou = new RepositorioBase<Usuario>();
+
+            Usuario usuario = repou.Buscar(Login.Usuarioid);
+            UsuarioTextBox.Text = usuario.User;
         }
 
         public bool Validar()
@@ -179,6 +186,20 @@ namespace ProyectoFinalFerreteria.UI.Registros
                 }
             }
             
+        }
+
+        private void RegistroArticulos_Load(object sender, EventArgs e)
+        {
+
+            RepositorioBase<Usuario> repou = new RepositorioBase<Usuario>();
+
+            Usuario usuario = repou.Buscar(Login.Usuarioid);
+            UsuarioTextBox.Text = usuario.User;
+        }
+
+        private void ArticuloTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.SoloLetras(e);
         }
     }
 }

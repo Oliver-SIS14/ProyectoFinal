@@ -48,6 +48,8 @@
             this.InventarioNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.UnidadComboBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.UsuarioTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.IDNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioNumericUpDown)).BeginInit();
@@ -101,6 +103,7 @@
             this.ArticuloTextBox.Name = "ArticuloTextBox";
             this.ArticuloTextBox.Size = new System.Drawing.Size(384, 20);
             this.ArticuloTextBox.TabIndex = 4;
+            this.ArticuloTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ArticuloTextBox_KeyPress);
             // 
             // NuevoButton
             // 
@@ -249,12 +252,33 @@
             this.UnidadComboBox.Size = new System.Drawing.Size(383, 21);
             this.UnidadComboBox.TabIndex = 23;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(131, 325);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 15);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "Usuario";
+            // 
+            // UsuarioTextBox
+            // 
+            this.UsuarioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsuarioTextBox.Location = new System.Drawing.Point(194, 324);
+            this.UsuarioTextBox.Name = "UsuarioTextBox";
+            this.UsuarioTextBox.ReadOnly = true;
+            this.UsuarioTextBox.Size = new System.Drawing.Size(167, 20);
+            this.UsuarioTextBox.TabIndex = 45;
+            // 
             // RegistroArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ClientSize = new System.Drawing.Size(475, 317);
+            this.ClientSize = new System.Drawing.Size(475, 349);
+            this.Controls.Add(this.UsuarioTextBox);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.UnidadComboBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.InventarioNumericUpDown);
@@ -276,6 +300,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "RegistroArticulos";
             this.Text = "Registro (Articulos)";
+            this.Load += new System.EventHandler(this.RegistroArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IDNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioNumericUpDown)).EndInit();
@@ -306,5 +331,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox UnidadComboBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox UsuarioTextBox;
     }
 }

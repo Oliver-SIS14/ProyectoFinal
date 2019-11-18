@@ -35,6 +35,7 @@
             this.FechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.ClienteComboBox = new System.Windows.Forms.ComboBox();
             this.ArticulosGroupBox = new System.Windows.Forms.GroupBox();
+            this.UnidadTextBox = new System.Windows.Forms.TextBox();
             this.PrecioUnitarioTextBox = new System.Windows.Forms.TextBox();
             this.AgregarAlGridButton = new System.Windows.Forms.Button();
             this.RemoverButton = new System.Windows.Forms.Button();
@@ -75,13 +76,12 @@
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.BalanceTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.UnidadTextBox = new System.Windows.Forms.TextBox();
+            this.ComentariosRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.UsuarioTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.IDNumericUpDown)).BeginInit();
             this.ArticulosGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DetalleDataGridView)).BeginInit();
@@ -133,6 +133,7 @@
             // 
             // ClienteComboBox
             // 
+            this.ClienteComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ClienteComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClienteComboBox.FormattingEnabled = true;
             this.ClienteComboBox.Location = new System.Drawing.Point(66, 50);
@@ -167,6 +168,14 @@
             this.ArticulosGroupBox.TabStop = false;
             this.ArticulosGroupBox.Text = "Articulos";
             // 
+            // UnidadTextBox
+            // 
+            this.UnidadTextBox.Location = new System.Drawing.Point(415, 44);
+            this.UnidadTextBox.Name = "UnidadTextBox";
+            this.UnidadTextBox.ReadOnly = true;
+            this.UnidadTextBox.Size = new System.Drawing.Size(100, 21);
+            this.UnidadTextBox.TabIndex = 22;
+            // 
             // PrecioUnitarioTextBox
             // 
             this.PrecioUnitarioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -199,6 +208,8 @@
             // 
             // DetalleDataGridView
             // 
+            this.DetalleDataGridView.AllowUserToAddRows = false;
+            this.DetalleDataGridView.AllowUserToDeleteRows = false;
             this.DetalleDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DetalleDataGridView.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.DetalleDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -212,6 +223,7 @@
             this.Importe});
             this.DetalleDataGridView.Location = new System.Drawing.Point(9, 72);
             this.DetalleDataGridView.Name = "DetalleDataGridView";
+            this.DetalleDataGridView.ReadOnly = true;
             this.DetalleDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.DetalleDataGridView.Size = new System.Drawing.Size(799, 221);
             this.DetalleDataGridView.TabIndex = 18;
@@ -281,6 +293,7 @@
             // 
             // DescripcionComboBox
             // 
+            this.DescripcionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DescripcionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DescripcionComboBox.FormattingEnabled = true;
             this.DescripcionComboBox.Location = new System.Drawing.Point(9, 44);
@@ -424,6 +437,7 @@
             this.DescuentosTextBox.Name = "DescuentosTextBox";
             this.DescuentosTextBox.Size = new System.Drawing.Size(177, 21);
             this.DescuentosTextBox.TabIndex = 17;
+            this.DescuentosTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescuentosTextBox_KeyPress);
             // 
             // CantidadArticulosTextBox
             // 
@@ -468,7 +482,7 @@
             this.MyErrorProvider.SetIconAlignment(this.LogoPictureBox, System.Windows.Forms.ErrorIconAlignment.TopLeft);
             this.LogoPictureBox.Image = global::ProyectoFinalFerreteria.Properties.Resources._669cbf70_fad9_465f_9024_dbe779f3d527_200x200BeFunky;
             this.LogoPictureBox.ImageLocation = "";
-            this.LogoPictureBox.Location = new System.Drawing.Point(319, -2);
+            this.LogoPictureBox.Location = new System.Drawing.Point(315, -2);
             this.LogoPictureBox.Name = "LogoPictureBox";
             this.LogoPictureBox.Size = new System.Drawing.Size(159, 111);
             this.LogoPictureBox.TabIndex = 26;
@@ -488,13 +502,14 @@
             // 
             this.ImprimirButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImprimirButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.icons8_error_de_impresora_30;
-            this.ImprimirButton.Location = new System.Drawing.Point(483, 552);
+            this.ImprimirButton.Location = new System.Drawing.Point(483, 542);
             this.ImprimirButton.Name = "ImprimirButton";
             this.ImprimirButton.Size = new System.Drawing.Size(133, 52);
             this.ImprimirButton.TabIndex = 28;
             this.ImprimirButton.Text = "Imprimir";
             this.ImprimirButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.ImprimirButton.UseVisualStyleBackColor = true;
+            this.ImprimirButton.Click += new System.EventHandler(this.ImprimirButton_Click);
             // 
             // AgregarClienteButton
             // 
@@ -510,7 +525,7 @@
             // 
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.NuevoIcon__1_;
-            this.NuevoButton.Location = new System.Drawing.Point(12, 552);
+            this.NuevoButton.Location = new System.Drawing.Point(12, 542);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(133, 52);
             this.NuevoButton.TabIndex = 22;
@@ -523,7 +538,7 @@
             // 
             this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuardarButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.GuardarIcon__1_;
-            this.GuardarButton.Location = new System.Drawing.Point(240, 552);
+            this.GuardarButton.Location = new System.Drawing.Point(240, 542);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(133, 52);
             this.GuardarButton.TabIndex = 21;
@@ -536,7 +551,7 @@
             // 
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.borradoricon;
-            this.EliminarButton.Location = new System.Drawing.Point(695, 552);
+            this.EliminarButton.Location = new System.Drawing.Point(695, 542);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(133, 52);
             this.EliminarButton.TabIndex = 20;
@@ -558,27 +573,6 @@
             this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.BuscarButton.UseVisualStyleBackColor = true;
             this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Cajas",
-            "Fundas",
-            "Paquetes",
-            "Unidad",
-            "Sacos",
-            "Libras",
-            "Kilos",
-            "Quintales",
-            "Camiones",
-            "Laminas"});
-            this.comboBox1.Location = new System.Drawing.Point(360, 617);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(199, 21);
-            this.comboBox1.TabIndex = 29;
             // 
             // label5
             // 
@@ -619,34 +613,34 @@
             this.label7.TabIndex = 33;
             this.label7.Text = "Comentario";
             // 
-            // richTextBox1
+            // ComentariosRichTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(644, 478);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(184, 53);
-            this.richTextBox1.TabIndex = 34;
-            this.richTextBox1.Text = "";
+            this.ComentariosRichTextBox.Location = new System.Drawing.Point(644, 478);
+            this.ComentariosRichTextBox.Name = "ComentariosRichTextBox";
+            this.ComentariosRichTextBox.Size = new System.Drawing.Size(184, 53);
+            this.ComentariosRichTextBox.TabIndex = 34;
+            this.ComentariosRichTextBox.Text = "";
             // 
-            // UnidadTextBox
+            // UsuarioTextBox
             // 
-            this.UnidadTextBox.Location = new System.Drawing.Point(415, 44);
-            this.UnidadTextBox.Name = "UnidadTextBox";
-            this.UnidadTextBox.ReadOnly = true;
-            this.UnidadTextBox.Size = new System.Drawing.Size(100, 21);
-            this.UnidadTextBox.TabIndex = 22;
+            this.UsuarioTextBox.Location = new System.Drawing.Point(360, 618);
+            this.UsuarioTextBox.Name = "UsuarioTextBox";
+            this.UsuarioTextBox.ReadOnly = true;
+            this.UsuarioTextBox.Size = new System.Drawing.Size(167, 20);
+            this.UsuarioTextBox.TabIndex = 35;
             // 
             // RegistroFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ClientSize = new System.Drawing.Size(836, 673);
-            this.Controls.Add(this.richTextBox1);
+            this.ClientSize = new System.Drawing.Size(836, 642);
+            this.Controls.Add(this.UsuarioTextBox);
+            this.Controls.Add(this.ComentariosRichTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.BalanceTextBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ImprimirButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ClienteComboBox);
@@ -732,7 +726,6 @@
         private System.Windows.Forms.Button ImprimirButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox BalanceTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn ArticuloId;
@@ -741,8 +734,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Unidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox ComentariosRichTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox UnidadTextBox;
+        private System.Windows.Forms.TextBox UsuarioTextBox;
     }
 }

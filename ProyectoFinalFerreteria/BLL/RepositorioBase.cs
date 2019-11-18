@@ -11,7 +11,7 @@ namespace ProyectoFinalFerreteria.BLL
 {
     public class RepositorioBase<T> : IDisposable, IRepository<T> where T : class
     {
-        Contexto contexto;
+        internal Contexto contexto;
 
         public RepositorioBase()
         {

@@ -21,6 +21,7 @@ namespace ProyectoFinalFerreteria.Entidades
         public decimal Balance { get; set; }
         public decimal LimiteCredito { get; set; }
         public string Email { get; set; }
+        public int Usuarioid { get; set; }
         public Clientes()
         {
         }

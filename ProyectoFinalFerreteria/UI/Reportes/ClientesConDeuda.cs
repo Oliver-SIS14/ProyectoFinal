@@ -16,14 +16,14 @@ namespace ProyectoFinalFerreteria.UI.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ClientesConDeudas : ReportClass {
+    public class ClientesConDeuda : ReportClass {
         
-        public ClientesConDeudas() {
+        public ClientesConDeuda() {
         }
         
         public override string ResourceName {
             get {
-                return "ClientesConDeudas.rpt";
+                return "ClientesConDeuda.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ProyectoFinalFerreteria.UI.Reportes {
         
         public override string FullResourceName {
             get {
-                return "ProyectoFinalFerreteria.UI.Reportes.ClientesConDeudas.rpt";
+                return "ProyectoFinalFerreteria.UI.Reportes.ClientesConDeuda.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace ProyectoFinalFerreteria.UI.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedClientesConDeudas : Component, ICachedReport {
+    public class CachedClientesConDeuda : Component, ICachedReport {
         
-        public CachedClientesConDeudas() {
+        public CachedClientesConDeuda() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace ProyectoFinalFerreteria.UI.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ClientesConDeudas rpt = new ClientesConDeudas();
+            ClientesConDeuda rpt = new ClientesConDeuda();
             rpt.Site = this.Site;
             return rpt;
         }

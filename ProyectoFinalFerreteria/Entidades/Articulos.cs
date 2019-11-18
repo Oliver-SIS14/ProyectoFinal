@@ -17,6 +17,7 @@ namespace ProyectoFinalFerreteria.Entidades
         public decimal PrecioUnitario { get; set; }
         public string Unidad { get; set; }
         public int Inventario { get; set; }
+        public int Usuarioid { get; set; }
         public Articulos()
         {
         }

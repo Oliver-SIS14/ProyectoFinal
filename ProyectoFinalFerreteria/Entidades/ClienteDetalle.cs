@@ -14,7 +14,7 @@ namespace ProyectoFinalFerreteria.Entidades
         public int Clienteid { get; set; }
         public int Facturaid { get; set; }
         public decimal Monto { get; set; }
-
+        public int Usuarioid { get; set; }
         public ClienteDetalle()
         {
         }
