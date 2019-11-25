@@ -221,12 +221,12 @@ namespace ProyectoFinalFerreteria.UI.Registros
                 paso = false;
             }
 
-       /*     if (!VerificarLimiteCredito())
+            if (!VerificarLimiteCredito())
             {
                 MyErrorProvider.SetError(ClienteComboBox, "El cliente ha excedido su limite de credito");
                 ClienteComboBox.Focus();
                 paso = false;
-            }*/
+            }
             return paso;
         }
 
@@ -327,8 +327,8 @@ namespace ProyectoFinalFerreteria.UI.Registros
         private void AgregarAlGridButton_Click(object sender, EventArgs e)
         {
             RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
-        //    if (DetalleDataGridView.DataSource != null)
-          //      this.detalle = (List<FacturaDetalle>)DetalleDataGridView.DataSource;
+            if (DetalleDataGridView.DataSource != null)
+                this.detalle = (List<FacturaDetalle>)DetalleDataGridView.DataSource;
                 
             string Id = DescripcionComboBox.SelectedValue.ToString();
 
@@ -395,11 +395,12 @@ namespace ProyectoFinalFerreteria.UI.Registros
         {
             RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
 
-            CargarGrid(this.detalle);
+            //CargarGrid(this.detalle);
             if (DetalleDataGridView.CurrentRow != null && DetalleDataGridView.Rows.Count > 0)
             {
                 detalle.RemoveAt(DetalleDataGridView.CurrentRow.Index);
-                CargarGrid(this.detalle);
+                DetalleDataGridView.Rows.Clear();
+                CargarGrid(detalle);
             }
             decimal SubTotal = 0, ITBIS = 0, TotalGeneral = 0;
 
@@ -470,35 +471,9 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
         private void ImprimirButton_Click(object sender, EventArgs e)
         {
-
-            ImpresionFactura rec = new ImpresionFactura();
-            RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
-            RepositorioBase<Clientes> repoc = new RepositorioBase<Clientes>();
-
-            var Lista = this.detalle;
-            foreach (var item in Lista)
-            {
-                rec.Articuloid = item.Articuloid;
-                rec.cantidad = item.Cantidad;
-                Clientes cliente  = repoc.Buscar(Convert.ToInt32(ClienteComboBox.SelectedValue.ToString()));
-                Articulos articulo = repo.Buscar(item.Articuloid);
-                rec.NombreCliente = cliente.Nombres;
-                rec.ApellidoCliente = cliente.Apellidos;
-                rec.Descripcion = articulo.Descripcion;
-                rec.Precio = articulo.PrecioUnitario;
-                rec.ITBIS = articulo.PrecioUnitario * (decimal)(0.18);
-                rec.Facturaid = item.Facturaid;
-                rec.Importe = articulo.PrecioUnitario * item.Cantidad;
-                rec.TotalGeneral = Convert.ToDecimal(TotalGeneralTextBox.Text);
-                rec.Balance = cliente.Balance;
-                rec.Comentarios = ComentariosRichTextBox.Text;
-
-                GuardarButton_Click(sender, e);
-
-            }
-
-
-            Form formulario = new ReporteImprimirFactura(ReporteImprimirFactura.ListaArticulos2);
+            RepositorioFactura repo3 = new RepositorioFactura();
+            var Lista2 = repo3.GetList(p => true);
+            Form formulario = new ReporteVentasDiarias(Lista2);
             formulario.Show();           
         }
 

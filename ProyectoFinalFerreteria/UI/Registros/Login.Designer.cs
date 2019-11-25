@@ -35,7 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.RegistrarseButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +44,7 @@
             this.UsuarioComboBox.FormattingEnabled = true;
             this.UsuarioComboBox.Location = new System.Drawing.Point(100, 146);
             this.UsuarioComboBox.Name = "UsuarioComboBox";
-            this.UsuarioComboBox.Size = new System.Drawing.Size(189, 21);
+            this.UsuarioComboBox.Size = new System.Drawing.Size(211, 21);
             this.UsuarioComboBox.TabIndex = 0;
             this.UsuarioComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             this.UsuarioComboBox.TextChanged += new System.EventHandler(this.UsuarioComboBox_TextChanged);
@@ -109,22 +108,11 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(296, 149);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 299);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.RegistrarseButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -150,6 +138,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button RegistrarseButton;
-        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

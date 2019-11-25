@@ -62,7 +62,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
                 repo2.Guardar(u);
             }
 
-
+            RegistrarseButton.Enabled = false;
 
             RepositorioBase<Usuario> repo = new RepositorioBase<Usuario>();
 
@@ -114,18 +114,21 @@ namespace ProyectoFinalFerreteria.UI.Registros
         private void ContraseñaTextBox_TextChanged(object sender, EventArgs e)
         {
             RepositorioBase<Usuario> repo = new RepositorioBase<Usuario>();
-            string id = UsuarioComboBox.SelectedValue.ToString();
 
-            Usuario user = repo.Buscar(Convert.ToInt32(id));
-            if (user.Tipo == 0)
-            {
-                RegistrarseButton.Enabled = false;
-            }
-            else
+            var lista = repo.GetList(p => true);
+            int id = Convert.ToInt32(UsuarioComboBox.SelectedValue.ToString());
+
+            Usuario usuario = repo.Buscar(id);
+
+
+            if (usuario.Contraseña == ContraseñaTextBox.Text)
             {
                 RegistrarseButton.Enabled = true;
             }
-
+            else
+            {
+                RegistrarseButton.Enabled = false;
+            }
         }
 
         private void UsuarioComboBox_TextChanged(object sender, EventArgs e)
@@ -133,22 +136,5 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
         }
 
-        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            checkBox1.Checked = true;
-            RepositorioBase<Usuario> repo = new RepositorioBase<Usuario>();
-            string id = UsuarioComboBox.SelectedValue.ToString();
-
-            Usuario user = repo.Buscar(Convert.ToInt32(id));
-            if (user.Tipo == 0)
-            {
-                RegistrarseButton.Enabled = false;
-            }
-            else
-            {
-                RegistrarseButton.Enabled = true;
-            }
-
-        }
     }
 }

@@ -210,7 +210,6 @@
             // DetalleDataGridView
             // 
             this.DetalleDataGridView.AllowUserToAddRows = false;
-            this.DetalleDataGridView.AllowUserToDeleteRows = false;
             this.DetalleDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DetalleDataGridView.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.DetalleDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

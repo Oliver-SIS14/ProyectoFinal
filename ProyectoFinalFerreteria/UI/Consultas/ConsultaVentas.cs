@@ -67,7 +67,6 @@ namespace ProyectoFinalFerreteria.UI.Consultas
 
         private void ImprimirButton_Click(object sender, EventArgs e)
         {
-
             RepositorioBase<Facturas> repo = new RepositorioBase<Facturas>();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
@@ -79,7 +78,7 @@ namespace ProyectoFinalFerreteria.UI.Consultas
                         break;
                     case 1: //Articuloid
                         int id = Convert.ToInt32(CriterioTextBox.Text);
-                        filtro = x => (x.Facturaid == id) && (x.Fecha >= DesdeDateTimePicker.Value && x.Fecha <= HastaDateTimePicker.Value);
+                        filtro = x => x.Facturaid == id && (x.Fecha >= DesdeDateTimePicker.Value && x.Fecha <= HastaDateTimePicker.Value);
                         //  ListaArt = repo.GetList(p => p.Articuloid == id);
                         break;
                     case 2://Codigo

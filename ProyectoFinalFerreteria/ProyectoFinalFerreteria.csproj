@@ -170,12 +170,6 @@
     <Compile Include="UI\Reportes\ReporteClientesConDeudas.Designer.cs">
       <DependentUpon>ReporteClientesConDeudas.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Reportes\ReporteImprimirFactura.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Reportes\ReporteImprimirFactura.Designer.cs">
-      <DependentUpon>ReporteImprimirFactura.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Reportes\ReporteVentasDiarias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,9 +238,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ReporteClientesConDeudas.resx">
       <DependentUpon>ReporteClientesConDeudas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\ReporteImprimirFactura.resx">
-      <DependentUpon>ReporteImprimirFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ReporteVentasDiarias.resx">
       <DependentUpon>ReporteVentasDiarias.cs</DependentUpon>
