@@ -38,12 +38,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ImprimirButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProductoDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // ProductoDataGridView
             // 
-            this.ProductoDataGridView.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
+            this.ProductoDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.ProductoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProductoDataGridView.Location = new System.Drawing.Point(16, 60);
             this.ProductoDataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -75,31 +76,31 @@
             // 
             this.FiltroComboBox.FormattingEnabled = true;
             this.FiltroComboBox.Items.AddRange(new object[] {
+            "Todo",
             "Id",
-            "Monto",
-            "Cliente",
-            "CodigoCliente",
-            "IdCliente"});
+            "Codigo",
+            "Marca",
+            "Nombre"});
             this.FiltroComboBox.Location = new System.Drawing.Point(291, 29);
             this.FiltroComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.FiltroComboBox.Name = "FiltroComboBox";
-            this.FiltroComboBox.Size = new System.Drawing.Size(217, 23);
+            this.FiltroComboBox.Size = new System.Drawing.Size(172, 23);
             this.FiltroComboBox.TabIndex = 8;
             // 
             // CriterioTextBox
             // 
-            this.CriterioTextBox.Location = new System.Drawing.Point(517, 29);
+            this.CriterioTextBox.Location = new System.Drawing.Point(471, 29);
             this.CriterioTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CriterioTextBox.Name = "CriterioTextBox";
-            this.CriterioTextBox.Size = new System.Drawing.Size(329, 21);
+            this.CriterioTextBox.Size = new System.Drawing.Size(235, 21);
             this.CriterioTextBox.TabIndex = 9;
             // 
             // ConsultarButton
             // 
-            this.ConsultarButton.Location = new System.Drawing.Point(856, 27);
+            this.ConsultarButton.Location = new System.Drawing.Point(714, 29);
             this.ConsultarButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ConsultarButton.Name = "ConsultarButton";
-            this.ConsultarButton.Size = new System.Drawing.Size(195, 27);
+            this.ConsultarButton.Size = new System.Drawing.Size(169, 27);
             this.ConsultarButton.TabIndex = 10;
             this.ConsultarButton.Text = "Consultar";
             this.ConsultarButton.UseVisualStyleBackColor = true;
@@ -138,12 +139,23 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(513, 10);
+            this.label4.Location = new System.Drawing.Point(468, 10);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 15);
             this.label4.TabIndex = 14;
             this.label4.Text = "Criterio";
+            // 
+            // ImprimirButton
+            // 
+            this.ImprimirButton.Location = new System.Drawing.Point(891, 29);
+            this.ImprimirButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ImprimirButton.Name = "ImprimirButton";
+            this.ImprimirButton.Size = new System.Drawing.Size(160, 27);
+            this.ImprimirButton.TabIndex = 15;
+            this.ImprimirButton.Text = "Imprimir Reporte";
+            this.ImprimirButton.UseVisualStyleBackColor = true;
+            this.ImprimirButton.Click += new System.EventHandler(this.ImprimirButton_Click);
             // 
             // ConsultaProducto
             // 
@@ -151,6 +163,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(1067, 519);
+            this.Controls.Add(this.ImprimirButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -164,7 +177,8 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "ConsultaProducto";
-            this.Text = "Consulta (Articulos)";
+            this.Text = "Consulta Articulos (Ferreteria Nelson)";
+            this.Load += new System.EventHandler(this.ConsultaProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProductoDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -183,5 +197,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button ImprimirButton;
     }
 }

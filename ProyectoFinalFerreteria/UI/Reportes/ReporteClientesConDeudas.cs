@@ -14,11 +14,11 @@ namespace ProyectoFinalFerreteria.UI.Reportes
 {
     public partial class ReporteClientesConDeudas : Form
     {
-        public static List<Clientes> ListaClientes { get; set; }
+        public List<Clientes> ListaClientes { get; set; }
         public ReporteClientesConDeudas(List<Clientes>clientes)
         {
             InitializeComponent();
-            ListaClientes = clientes;
+            this.ListaClientes = clientes;
         }
 
         private void ReporteClientesConDeudas_Load(object sender, EventArgs e)
@@ -26,13 +26,8 @@ namespace ProyectoFinalFerreteria.UI.Reportes
             RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
             ClientesConDeuda listaf = new ClientesConDeuda();
 
-            ListaClientes = repo.GetList(p => true);
-
-            ListaClientes = ListaClientes.Where(c => c.Balance != 0).ToList();
-
             listaf.SetDataSource(ListaClientes);
             
-
             ClientesReportViewer.ReportSource = listaf;
             ClientesReportViewer.Refresh();
         }

@@ -14,6 +14,8 @@ namespace ProyectoFinalFerreteria.DAL
         public DbSet<Clientes> Clientes { get; set; }
         public DbSet<Articulos> Articulos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<ImpresionFactura> Impresiones { get; set; }
+        public DbSet<Cobro> Cobros { get; set; }
 
         public Contexto() : base("ConStr") { }
     }

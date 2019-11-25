@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalFerreteria.BLL
 {
-    class RepositorioCliente : RepositorioBase<Clientes>
+    public class RepositorioCliente : RepositorioBase<Clientes>
     {
         public override bool Eliminar(int id)
         {

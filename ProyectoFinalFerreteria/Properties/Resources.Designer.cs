@@ -123,6 +123,26 @@ namespace ProyectoFinalFerreteria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap borradoricon1 {
+            get {
+                object obj = ResourceManager.GetObject("borradoricon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BuscarIcon {
+            get {
+                object obj = ResourceManager.GetObject("BuscarIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BuscarIcon__1_ {
             get {
                 object obj = ResourceManager.GetObject("BuscarIcon (1)", resourceCulture);
@@ -153,6 +173,16 @@ namespace ProyectoFinalFerreteria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GuardarIcon__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("GuardarIcon (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_error_de_impresora_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-error-de-impresora-30", resourceCulture);
@@ -173,6 +203,16 @@ namespace ProyectoFinalFerreteria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_google_web_search_241 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-google-web-search-241", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_más_26 {
             get {
                 object obj = ResourceManager.GetObject("icons8-más-26", resourceCulture);
@@ -186,6 +226,16 @@ namespace ProyectoFinalFerreteria.Properties {
         internal static System.Drawing.Bitmap NuevoIcon__1_ {
             get {
                 object obj = ResourceManager.GetObject("NuevoIcon (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NuevoIcon__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("NuevoIcon (1)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

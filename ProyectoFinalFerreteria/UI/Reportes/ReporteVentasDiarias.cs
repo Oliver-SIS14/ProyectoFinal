@@ -14,10 +14,10 @@ namespace ProyectoFinalFerreteria.UI.Reportes
 {
     public partial class ReporteVentasDiarias : Form
     {
-        public static List<Facturas> ListaFacturas { get; set; }
+        public List<Facturas> ListaFacturas { get; set; }
         public ReporteVentasDiarias(List<Facturas> facturas)
         {
-            ListaFacturas = facturas;
+            this.ListaFacturas = facturas;
             InitializeComponent();
         }
 
@@ -31,9 +31,6 @@ namespace ProyectoFinalFerreteria.UI.Reportes
             RepositorioBase<Facturas> repo = new RepositorioBase<Facturas>();
             RVentasDiarias listaf = new RVentasDiarias();
 
-            ListaFacturas = repo.GetList(p=>true);
-
-            ListaFacturas = ListaFacturas.Where(c => c.Fecha == DateTime.Today).ToList();
             listaf.SetDataSource(ListaFacturas);
 
             VentasReporteViewer.ReportSource = listaf;

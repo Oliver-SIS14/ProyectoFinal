@@ -72,8 +72,10 @@
     <Compile Include="Entidades\Articulos.cs" />
     <Compile Include="Entidades\ClienteDetalle.cs" />
     <Compile Include="Entidades\Clientes.cs" />
+    <Compile Include="Entidades\Cobro.cs" />
     <Compile Include="Entidades\FacturaDetalle.cs" />
     <Compile Include="Entidades\Facturas.cs" />
+    <Compile Include="Entidades\ImpresionFactura.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Entidades\Validacion.cs" />
     <Compile Include="MainForm.cs">
@@ -96,11 +98,23 @@
     <Compile Include="UI\Consultas\ConsultaProducto.Designer.cs">
       <DependentUpon>ConsultaProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Consultas\ConsultaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaUsuarios.Designer.cs">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Consultas\ConsultaVentas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Consultas\ConsultaVentas.Designer.cs">
       <DependentUpon>ConsultaVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroCobro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroCobro.Designer.cs">
+      <DependentUpon>RegistroCobro.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\RegistroArticulos.cs">
       <SubType>Form</SubType>
@@ -156,12 +170,6 @@
     <Compile Include="UI\Reportes\ReporteClientesConDeudas.Designer.cs">
       <DependentUpon>ReporteClientesConDeudas.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Reportes\ReporteFactura.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReporteFactura.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="UI\Reportes\ReporteImprimirFactura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,8 +207,14 @@
     <EmbeddedResource Include="UI\Consultas\ConsultaProducto.resx">
       <DependentUpon>ConsultaProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\ConsultaUsuarios.resx">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Consultas\ConsultaVentas.resx">
       <DependentUpon>ConsultaVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\RegistroCobro.resx">
+      <DependentUpon>RegistroCobro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\RegistroArticulos.resx">
       <DependentUpon>RegistroArticulos.cs</DependentUpon>
@@ -230,10 +244,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ReporteClientesConDeudas.resx">
       <DependentUpon>ReporteClientesConDeudas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\ReporteFactura.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReporteFactura.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ReporteImprimirFactura.resx">
       <DependentUpon>ReporteImprimirFactura.cs</DependentUpon>
@@ -279,6 +289,11 @@
   <ItemGroup>
     <Content Include="DAL\Scripts\NelsonScript.sql" />
     <Content Include="DAL\Scripts\ProyectoFinalScript.sql" />
+    <None Include="Resources\icons8-google-web-search-241.png" />
+    <None Include="Resources\BuscarIcon.png" />
+    <None Include="Resources\borradoricon1.png" />
+    <None Include="Resources\GuardarIcon %281%291.png" />
+    <None Include="Resources\NuevoIcon %281%291.png" />
     <None Include="Resources\669cbf70-fad9-465f-9024-dbe779f3d527_200x200BeFunky %282%29.jpg" />
   </ItemGroup>
   <ItemGroup>

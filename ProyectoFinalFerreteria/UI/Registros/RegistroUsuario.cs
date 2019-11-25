@@ -24,6 +24,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
             IDNumericUpDown.Value = 0;
             UsuarioTextBox.Text = string.Empty;
             ContraseñaTextBox.Text = string.Empty;
+            TipoComboBox.SelectedIndex = 0;
         }
         public Usuario LlenarClase()
         {
@@ -32,6 +33,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
             usuario.IdUsuario = Convert.ToInt32(IDNumericUpDown.Value);
             usuario.User = UsuarioTextBox.Text;
             usuario.Contraseña = ContraseñaTextBox.Text;
+            usuario.Tipo = TipoComboBox.SelectedIndex;
 
             return usuario;
         }
@@ -41,6 +43,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
             IDNumericUpDown.Value = usuario.IdUsuario;
             UsuarioTextBox.Text = usuario.User;
             ContraseñaTextBox.Text = usuario.Contraseña;
+            TipoComboBox.SelectedIndex = usuario.Tipo;
         }
 
         public bool validar()
@@ -154,6 +157,19 @@ namespace ProyectoFinalFerreteria.UI.Registros
                 LlenarCampo(usuario);
             }
 
+        }
+
+        private void RegistroUsuario_Load(object sender, EventArgs e)
+        {
+            RepositorioBase<Usuario> repo = new RepositorioBase<Usuario>();
+
+            Usuario u = new Usuario();
+
+            u.Contraseña = "1234";
+            u.User = "Admin";
+            u.Tipo = 1;
+
+            repo.Guardar(u);
         }
     }
 }

@@ -26,10 +26,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
         private void TipoFacturaComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (TipoFacturaComboBox.SelectedIndex == 0)
-                ClienteComboBox.Enabled = true;
-            else
-                ClienteComboBox.Enabled = false;
+
         }
 
         public void LlenarComboBoxArticulo()
@@ -59,7 +56,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
             RepositorioBase<FacturaDetalle> repo2 = new RepositorioBase<FacturaDetalle>();
 
             var Listado = repo.GetList(c => true);
-            DetalleDataGridView.Rows.Clear();
+            
                 foreach (var item2 in detalle)
                 {
                     Articulos articulo = repo.Buscar(item2.Articuloid);
@@ -91,7 +88,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
             this.detalle = new List<FacturaDetalle>();
 
-            CargarGrid(this.detalle);
+            DetalleDataGridView.Rows.Clear();
         }
 
         public Facturas LlenarClase()
@@ -99,10 +96,10 @@ namespace ProyectoFinalFerreteria.UI.Registros
             Facturas factura = new Facturas();
 
             RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
-            
+
             factura.TipoFactura = TipoFacturaComboBox.Text;
             factura.Facturaid = Convert.ToInt32(IDNumericUpDown.Value);
-            factura.Clienteid = Convert.ToInt32(DescripcionComboBox.SelectedValue.ToString());
+            factura.Clienteid = Convert.ToInt32(ClienteComboBox.SelectedValue.ToString());
             factura.Fecha = FechaDateTimePicker.Value.Date;
             factura.ITBIS = Convert.ToDecimal(ITBISTextBox.Text);
             factura.CantidadArticulos = Convert.ToInt32(CantidadArticulosTextBox.Text);
@@ -145,13 +142,31 @@ namespace ProyectoFinalFerreteria.UI.Registros
             BalanceTextBox.Text = factura.Balance.ToString();
             ComentariosRichTextBox.Text = factura.Comentarios;
             SubTotalTextBox.Text = factura.SubTotal.ToString();
-
+            
             RepositorioBase<Usuario> repou = new RepositorioBase<Usuario>();
 
             Usuario usuario = repou.Buscar(Login.Usuarioid);
             UsuarioTextBox.Text = usuario.User;
 
-            CargarGrid(this.detalle);
+            CargarGrid(factura.Articulos);
+
+            RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
+            decimal SubTotal = 0, ITBIS = 0, TotalGeneral = 0;
+
+            foreach (var item in factura.Articulos)
+            {
+                Articulos articulo = repo.Buscar(item.Articuloid);
+
+                SubTotal += (articulo.PrecioUnitario * item.Cantidad);
+                ITBIS = (SubTotal * (decimal)0.18);
+                TotalGeneral = SubTotal + ITBIS;
+            }
+            SubTotalTextBox.Text = SubTotal.ToString();
+            ITBISTextBox.Text = ITBIS.ToString();
+            TotalGeneralTextBox.Text = TotalGeneral.ToString();
+            ComentariosRichTextBox.Clear();
+            ComentariosRichTextBox.Text = Convert.ToString(factura.Articulos.Count);
+
         }
 
         public bool ExisteEnLaBaseDeDatos()
@@ -206,12 +221,12 @@ namespace ProyectoFinalFerreteria.UI.Registros
                 paso = false;
             }
 
-            if (!VerificarLimiteCredito())
+       /*     if (!VerificarLimiteCredito())
             {
                 MyErrorProvider.SetError(ClienteComboBox, "El cliente ha excedido su limite de credito");
                 ClienteComboBox.Focus();
                 paso = false;
-            }
+            }*/
             return paso;
         }
 
@@ -249,8 +264,8 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
             if (paso)
             {
-                MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Limpiar();
+                MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
@@ -273,6 +288,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
             else
             {
                 LlenarCampo(factura);
+                DetalleDataGridView.Rows.Clear();
                 CargarGrid(factura.Articulos);
             }
         }
@@ -289,17 +305,21 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
             int id2 = Convert.ToInt32(ClienteComboBox.SelectedValue.ToString());
             Limpiar();
-
-            if (repo.Buscar(id) != null)
+            var Resultado = MessageBox.Show("Esta seguro que desea eliminar este Articulo", "Ferreteria Nelson", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            Limpiar();
+            if (Resultado == DialogResult.Yes)
             {
-                if (repof.Eliminar(id,id2))
-                    MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (repo.Buscar(id) != null)
+                {
+                    if (repof.Eliminar(id, id2, this.detalle))
+                        MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("No se pudo eliminar este registro", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 else
-                    MessageBox.Show("No se pudo eliminar este registro", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MessageBox.Show("Registro no encontrado", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                {
+                    MessageBox.Show("Registro no encontrado", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
         }
@@ -307,9 +327,9 @@ namespace ProyectoFinalFerreteria.UI.Registros
         private void AgregarAlGridButton_Click(object sender, EventArgs e)
         {
             RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
-            if (DetalleDataGridView.DataSource != null)
-                this.detalle = (List<FacturaDetalle>)DetalleDataGridView.DataSource;
-
+        //    if (DetalleDataGridView.DataSource != null)
+          //      this.detalle = (List<FacturaDetalle>)DetalleDataGridView.DataSource;
+                
             string Id = DescripcionComboBox.SelectedValue.ToString();
 
             this.detalle.Add(
@@ -322,6 +342,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
                     )
                 );
 
+            DetalleDataGridView.Rows.Clear();
             CargarGrid(this.detalle);
 
             DescripcionComboBox.Text = string.Empty;
@@ -329,25 +350,32 @@ namespace ProyectoFinalFerreteria.UI.Registros
             
             decimal SubTotal = 0, ITBIS = 0, TotalGeneral = 0;
 
+            CantidadArticulosTextBox.Text = this.detalle.Count.ToString();
+            if (string.IsNullOrWhiteSpace(SubTotalTextBox.Text))
+                SubTotalTextBox.Text = "0";
+            if (string.IsNullOrWhiteSpace(ITBISTextBox.Text))
+                ITBISTextBox.Text = "0";
+            if (string.IsNullOrWhiteSpace(TotalGeneralTextBox.Text))
+                TotalGeneralTextBox.Text = "0";
+
             foreach (var item in this.detalle)
             {
                 Articulos articulo = repo.Buscar(item.Articuloid);
 
-                SubTotal += (articulo.PrecioUnitario * item.Cantidad);
-                ITBIS += (SubTotal *(decimal)0.18);
-                TotalGeneral += SubTotal - ITBIS;
+                SubTotal = Convert.ToDecimal(SubTotalTextBox.Text) + (articulo.PrecioUnitario * item.Cantidad);
+                ITBIS = (SubTotal *(decimal)0.18);
+                TotalGeneral = SubTotal + ITBIS;
             }
 
             SubTotalTextBox.Text = SubTotal.ToString();
             ITBISTextBox.Text = ITBIS.ToString();
             TotalGeneralTextBox.Text = TotalGeneral.ToString();
-            CantidadArticulosTextBox.Text = Convert.ToString(this.detalle.Count);
 
-            CargarGrid(this.detalle);
         }
 
         private void AgregarClienteButton_Click(object sender, EventArgs e)
         {
+            LlenarComboBoxCliente();
             Form formulario = new RegistroCliente();
             formulario.ShowDialog();
 
@@ -356,6 +384,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
         private void BuscarArticuloButton_Click(object sender, EventArgs e)
         {
+            LlenarComboBoxArticulo();
             Form formulario = new RegistroArticulos();
             formulario.ShowDialog();
 
@@ -366,6 +395,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
         {
             RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
 
+            CargarGrid(this.detalle);
             if (DetalleDataGridView.CurrentRow != null && DetalleDataGridView.Rows.Count > 0)
             {
                 detalle.RemoveAt(DetalleDataGridView.CurrentRow.Index);
@@ -378,8 +408,8 @@ namespace ProyectoFinalFerreteria.UI.Registros
                 Articulos articulo = repo.Buscar(item.Articuloid);
 
                 SubTotal += (articulo.PrecioUnitario * item.Cantidad);
-                ITBIS += (SubTotal * (decimal)0.18);
-                TotalGeneral += SubTotal - ITBIS;
+                ITBIS = (SubTotal * (decimal)0.18);
+                TotalGeneral = SubTotal + ITBIS;
             }
             SubTotalTextBox.Text = SubTotal.ToString();
             ITBISTextBox.Text = ITBIS.ToString();
@@ -411,7 +441,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
         private void ClienteComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BalanceTextBox.Text = string.Empty;
+            
         }
 
         private void CantidadNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -440,7 +470,33 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
         private void ImprimirButton_Click(object sender, EventArgs e)
         {
-            GuardarButton_Click(sender,e);
+
+            ImpresionFactura rec = new ImpresionFactura();
+            RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
+            RepositorioBase<Clientes> repoc = new RepositorioBase<Clientes>();
+
+            var Lista = this.detalle;
+            foreach (var item in Lista)
+            {
+                rec.Articuloid = item.Articuloid;
+                rec.cantidad = item.Cantidad;
+                Clientes cliente  = repoc.Buscar(Convert.ToInt32(ClienteComboBox.SelectedValue.ToString()));
+                Articulos articulo = repo.Buscar(item.Articuloid);
+                rec.NombreCliente = cliente.Nombres;
+                rec.ApellidoCliente = cliente.Apellidos;
+                rec.Descripcion = articulo.Descripcion;
+                rec.Precio = articulo.PrecioUnitario;
+                rec.ITBIS = articulo.PrecioUnitario * (decimal)(0.18);
+                rec.Facturaid = item.Facturaid;
+                rec.Importe = articulo.PrecioUnitario * item.Cantidad;
+                rec.TotalGeneral = Convert.ToDecimal(TotalGeneralTextBox.Text);
+                rec.Balance = cliente.Balance;
+                rec.Comentarios = ComentariosRichTextBox.Text;
+
+                GuardarButton_Click(sender, e);
+
+            }
+
 
             Form formulario = new ReporteImprimirFactura(ReporteImprimirFactura.ListaArticulos2);
             formulario.Show();           
@@ -449,6 +505,11 @@ namespace ProyectoFinalFerreteria.UI.Registros
         private void DescuentosTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.SoloNumeros(e);
+        }
+
+        private void ClienteComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+////            BalanceTextBox.Text = ClienteComboBox.SelectedValue.ToString();
         }
     }
 }

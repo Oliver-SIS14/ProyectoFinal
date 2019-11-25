@@ -38,12 +38,13 @@
             this.FiltroComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ImprimirButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.VentasDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // VentasDataGridView
             // 
-            this.VentasDataGridView.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
+            this.VentasDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.VentasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.VentasDataGridView.Location = new System.Drawing.Point(14, 52);
             this.VentasDataGridView.Name = "VentasDataGridView";
@@ -70,9 +71,9 @@
             // 
             // ConsultarButton
             // 
-            this.ConsultarButton.Location = new System.Drawing.Point(749, 23);
+            this.ConsultarButton.Location = new System.Drawing.Point(596, 23);
             this.ConsultarButton.Name = "ConsultarButton";
-            this.ConsultarButton.Size = new System.Drawing.Size(170, 23);
+            this.ConsultarButton.Size = new System.Drawing.Size(165, 23);
             this.ConsultarButton.TabIndex = 3;
             this.ConsultarButton.Text = "Consultar";
             this.ConsultarButton.UseVisualStyleBackColor = true;
@@ -96,9 +97,9 @@
             // 
             // CriterioTextBox
             // 
-            this.CriterioTextBox.Location = new System.Drawing.Point(453, 25);
+            this.CriterioTextBox.Location = new System.Drawing.Point(405, 26);
             this.CriterioTextBox.Name = "CriterioTextBox";
-            this.CriterioTextBox.Size = new System.Drawing.Size(289, 20);
+            this.CriterioTextBox.Size = new System.Drawing.Size(185, 20);
             this.CriterioTextBox.TabIndex = 6;
             // 
             // FiltroComboBox
@@ -112,7 +113,7 @@
             "Codigo del cliente"});
             this.FiltroComboBox.Location = new System.Drawing.Point(254, 25);
             this.FiltroComboBox.Name = "FiltroComboBox";
-            this.FiltroComboBox.Size = new System.Drawing.Size(191, 21);
+            this.FiltroComboBox.Size = new System.Drawing.Size(145, 21);
             this.FiltroComboBox.TabIndex = 7;
             // 
             // label3
@@ -127,11 +128,21 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(449, 9);
+            this.label4.Location = new System.Drawing.Point(402, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Criterio";
+            // 
+            // ImprimirButton
+            // 
+            this.ImprimirButton.Location = new System.Drawing.Point(767, 23);
+            this.ImprimirButton.Name = "ImprimirButton";
+            this.ImprimirButton.Size = new System.Drawing.Size(152, 23);
+            this.ImprimirButton.TabIndex = 10;
+            this.ImprimirButton.Text = "Imprimir Reporte";
+            this.ImprimirButton.UseVisualStyleBackColor = true;
+            this.ImprimirButton.Click += new System.EventHandler(this.ImprimirButton_Click);
             // 
             // ConsultaVentas
             // 
@@ -139,6 +150,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(933, 450);
+            this.Controls.Add(this.ImprimirButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.FiltroComboBox);
@@ -151,7 +163,7 @@
             this.Controls.Add(this.VentasDataGridView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ConsultaVentas";
-            this.Text = "Consulta (Ventas)";
+            this.Text = "Consulta Ventas (Ferreteria Nelson)";
             this.Load += new System.EventHandler(this.ConsultaVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.VentasDataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -171,5 +183,6 @@
         private System.Windows.Forms.ComboBox FiltroComboBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button ImprimirButton;
     }
 }

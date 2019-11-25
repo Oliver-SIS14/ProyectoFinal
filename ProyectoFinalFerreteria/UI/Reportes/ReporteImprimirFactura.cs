@@ -24,14 +24,14 @@ namespace ProyectoFinalFerreteria.UI.Reportes
         private void FacturaReportViewer_Load(object sender, EventArgs e)
         {
             RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
-            ReporteFactura listaf = new ReporteFactura();
-
+           // ReporteFactura listaf = new ReporteFactura();
+/*
             ListaArticulos2 = repo.GetList(p => true);
 
             listaf.SetDataSource(ListaArticulos2);
 
             FacturaReportViewer.ReportSource = listaf;
-            FacturaReportViewer.Refresh();
+            FacturaReportViewer.Refresh();*/
         }
     }
 }

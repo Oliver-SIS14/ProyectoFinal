@@ -142,6 +142,7 @@
             this.ClienteComboBox.Size = new System.Drawing.Size(196, 21);
             this.ClienteComboBox.TabIndex = 23;
             this.ClienteComboBox.SelectedIndexChanged += new System.EventHandler(this.ClienteComboBox_SelectedIndexChanged);
+            this.ClienteComboBox.SelectedValueChanged += new System.EventHandler(this.ClienteComboBox_SelectedValueChanged);
             // 
             // ArticulosGroupBox
             // 
@@ -166,7 +167,7 @@
             this.ArticulosGroupBox.Size = new System.Drawing.Size(816, 325);
             this.ArticulosGroupBox.TabIndex = 6;
             this.ArticulosGroupBox.TabStop = false;
-            this.ArticulosGroupBox.Text = "Articulos";
+            this.ArticulosGroupBox.Text = "Artículos";
             // 
             // UnidadTextBox
             // 
@@ -232,31 +233,37 @@
             // 
             this.ArticuloId.HeaderText = "ArticuloId";
             this.ArticuloId.Name = "ArticuloId";
+            this.ArticuloId.ReadOnly = true;
             // 
             // Descripcion
             // 
             this.Descripcion.HeaderText = "Descripción";
             this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
             // 
             // Cantidad
             // 
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
             // 
             // Unidad
             // 
             this.Unidad.HeaderText = "Unidad";
             this.Unidad.Name = "Unidad";
+            this.Unidad.ReadOnly = true;
             // 
             // Precio
             // 
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
             // 
             // Importe
             // 
             this.Importe.HeaderText = "Importe";
             this.Importe.Name = "Importe";
+            this.Importe.ReadOnly = true;
             // 
             // ImporteTextBox
             // 
@@ -482,7 +489,7 @@
             this.MyErrorProvider.SetIconAlignment(this.LogoPictureBox, System.Windows.Forms.ErrorIconAlignment.TopLeft);
             this.LogoPictureBox.Image = global::ProyectoFinalFerreteria.Properties.Resources._669cbf70_fad9_465f_9024_dbe779f3d527_200x200BeFunky;
             this.LogoPictureBox.ImageLocation = "";
-            this.LogoPictureBox.Location = new System.Drawing.Point(315, -2);
+            this.LogoPictureBox.Location = new System.Drawing.Point(315, -9);
             this.LogoPictureBox.Name = "LogoPictureBox";
             this.LogoPictureBox.Size = new System.Drawing.Size(159, 111);
             this.LogoPictureBox.TabIndex = 26;
@@ -578,7 +585,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(297, 618);
+            this.label5.Location = new System.Drawing.Point(297, 601);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 15);
             this.label5.TabIndex = 30;
@@ -623,7 +630,7 @@
             // 
             // UsuarioTextBox
             // 
-            this.UsuarioTextBox.Location = new System.Drawing.Point(360, 618);
+            this.UsuarioTextBox.Location = new System.Drawing.Point(360, 600);
             this.UsuarioTextBox.Name = "UsuarioTextBox";
             this.UsuarioTextBox.ReadOnly = true;
             this.UsuarioTextBox.Size = new System.Drawing.Size(167, 20);
@@ -634,7 +641,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ClientSize = new System.Drawing.Size(836, 642);
+            this.ClientSize = new System.Drawing.Size(836, 628);
             this.Controls.Add(this.UsuarioTextBox);
             this.Controls.Add(this.ComentariosRichTextBox);
             this.Controls.Add(this.label7);
@@ -669,7 +676,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "RegistroFacturacion";
-            this.Text = "Registro (Facturacion)";
+            this.Text = "Registro Facturación (Ferreteria Nelson)";
             this.Load += new System.EventHandler(this.RegistroFacturacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IDNumericUpDown)).EndInit();
             this.ArticulosGroupBox.ResumeLayout(false);

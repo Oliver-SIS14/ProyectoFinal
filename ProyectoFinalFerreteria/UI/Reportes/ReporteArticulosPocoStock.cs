@@ -14,21 +14,17 @@ namespace ProyectoFinalFerreteria.UI.Reportes
 {
     public partial class ReporteArticulosPocoStock : Form
     {
-        public static List<Articulos> ListaArticulos { get; set; }
+        public List<Articulos> ListaArticulos { get; set; }
         public ReporteArticulosPocoStock(List<Articulos>articulos)
         {
+            this.ListaArticulos = articulos;
             InitializeComponent();
-            ListaArticulos = articulos;
         }
 
         private void ReporteArticulosPocoStock_Load(object sender, EventArgs e)
         {
             RepositorioBase<Articulos> repo = new RepositorioBase<Articulos>();
             ReporteArticulosAgotados listaf = new ReporteArticulosAgotados();
-
-            ListaArticulos = repo.GetList(p => true);
-
-            ListaArticulos = ListaArticulos.Where(c => c.Inventario <= 5).ToList();
 
             listaf.SetDataSource(ListaArticulos);
 

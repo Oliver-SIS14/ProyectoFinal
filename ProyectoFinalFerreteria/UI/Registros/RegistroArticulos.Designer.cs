@@ -299,7 +299,7 @@
             this.Controls.Add(this.IDNumericUpDown);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "RegistroArticulos";
-            this.Text = "Registro (Articulos)";
+            this.Text = "Registro Articulos (Ferreteria Nelson)";
             this.Load += new System.EventHandler(this.RegistroArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IDNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();

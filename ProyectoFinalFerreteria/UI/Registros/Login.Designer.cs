@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.RegistrarseButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,9 +45,10 @@
             this.UsuarioComboBox.FormattingEnabled = true;
             this.UsuarioComboBox.Location = new System.Drawing.Point(100, 146);
             this.UsuarioComboBox.Name = "UsuarioComboBox";
-            this.UsuarioComboBox.Size = new System.Drawing.Size(213, 21);
+            this.UsuarioComboBox.Size = new System.Drawing.Size(189, 21);
             this.UsuarioComboBox.TabIndex = 0;
             this.UsuarioComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            this.UsuarioComboBox.TextChanged += new System.EventHandler(this.UsuarioComboBox_TextChanged);
             // 
             // ContraseñaTextBox
             // 
@@ -55,6 +57,7 @@
             this.ContraseñaTextBox.Size = new System.Drawing.Size(213, 20);
             this.ContraseñaTextBox.TabIndex = 1;
             this.ContraseñaTextBox.UseSystemPasswordChar = true;
+            this.ContraseñaTextBox.TextChanged += new System.EventHandler(this.ContraseñaTextBox_TextChanged);
             // 
             // IngresarButton
             // 
@@ -88,11 +91,14 @@
             // RegistrarseButton
             // 
             this.RegistrarseButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.icons8_más_26;
-            this.RegistrarseButton.Location = new System.Drawing.Point(337, 138);
+            this.RegistrarseButton.Location = new System.Drawing.Point(317, 138);
             this.RegistrarseButton.Name = "RegistrarseButton";
             this.RegistrarseButton.Size = new System.Drawing.Size(48, 34);
             this.RegistrarseButton.TabIndex = 6;
             this.RegistrarseButton.UseVisualStyleBackColor = true;
+            this.RegistrarseButton.TextChanged += new System.EventHandler(this.RegistrarseButton_TextChanged);
+            this.RegistrarseButton.VisibleChanged += new System.EventHandler(this.RegistrarseButton_VisibleChanged);
+            this.RegistrarseButton.Click += new System.EventHandler(this.RegistrarseButton_Click);
             // 
             // pictureBox1
             // 
@@ -103,11 +109,22 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(296, 149);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 299);
+            this.ClientSize = new System.Drawing.Size(409, 299);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.RegistrarseButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -116,7 +133,7 @@
             this.Controls.Add(this.ContraseñaTextBox);
             this.Controls.Add(this.UsuarioComboBox);
             this.Name = "Login";
-            this.Text = "Login";
+            this.Text = "Login (Ferreteria Nelson)";
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -133,5 +150,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button RegistrarseButton;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

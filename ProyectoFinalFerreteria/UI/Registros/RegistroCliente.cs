@@ -32,9 +32,9 @@ namespace ProyectoFinalFerreteria.UI.Registros
             TelefonoMaskedTextBox.Text = string.Empty;
             CelularMaskedTextBox.Text = string.Empty;
             EmailTextBox.Text = string.Empty;
-            DepositoTextBox.Text = string.Empty;
-            BalanceTextBox.Text = string.Empty;
-            LimiteCreditoTextBox.Text = string.Empty;
+           // DepositoTextBox.Text = string.Empty;
+           // BalanceTextBox.Text = string.Empty;
+           // LimiteCreditoTextBox.Text = string.Empty;
 
 
             this.Cdetalle = new List<Facturas>();
@@ -56,16 +56,16 @@ namespace ProyectoFinalFerreteria.UI.Registros
             cliente.Cedula = CedulaMaskedTextBox.Text;
             cliente.Direccion = DireccionTextBox.Text;
             cliente.Email = EmailTextBox.Text;
-            if (string.IsNullOrWhiteSpace(BalanceTextBox.Text))
+           // if (string.IsNullOrWhiteSpace(BalanceTextBox.Text))
             
-               BalanceTextBox.Text = "0";
+             //  BalanceTextBox.Text = "0";
            
-            if (string.IsNullOrWhiteSpace(DepositoTextBox.Text))
-                DepositoTextBox.Text = "0";
-            cliente.Balance = Convert.ToDecimal(BalanceTextBox.Text) - Convert.ToDecimal(DepositoTextBox.Text);
+           // if (string.IsNullOrWhiteSpace(DepositoTextBox.Text))
+             //   DepositoTextBox.Text = "0";
+            //cliente.Balance = Convert.ToDecimal(BalanceTextBox.Text) - Convert.ToDecimal(DepositoTextBox.Text);
             cliente.Telefono = TelefonoMaskedTextBox.Text;
             cliente.Celular = CelularMaskedTextBox.Text;
-            cliente.LimiteCredito = Convert.ToDecimal(LimiteCreditoTextBox.Text) - cliente.Balance + Convert.ToDecimal(DepositoTextBox.Text);
+            //cliente.LimiteCredito = Convert.ToDecimal(LimiteCreditoTextBox.Text) - cliente.Balance + Convert.ToDecimal(DepositoTextBox.Text);
             cliente.Usuarioid = Login.Usuarioid;
 
             return cliente;
@@ -81,9 +81,9 @@ namespace ProyectoFinalFerreteria.UI.Registros
             CelularMaskedTextBox.Text = cliente.Celular;
             DireccionTextBox.Text = cliente.Direccion;
             EmailTextBox.Text = cliente.Email;
-            BalanceTextBox.Text = cliente.Balance.ToString();
+         //   BalanceTextBox.Text = cliente.Balance.ToString();
             TelefonoMaskedTextBox.Text = cliente.Telefono;
-            LimiteCreditoTextBox.Text = cliente.LimiteCredito.ToString();
+         //   LimiteCreditoTextBox.Text = cliente.LimiteCredito.ToString();
             RepositorioBase<Usuario> repou = new RepositorioBase<Usuario>();
 
             Usuario usuario = repou.Buscar(Login.Usuarioid);
@@ -224,15 +224,6 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
         private void BalanceTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(BalanceTextBox.Text) || BalanceTextBox.Text == "0,00")
-            {
-                DepositoTextBox.Text = "0,00";
-                DepositoTextBox.ReadOnly = true;
-            }
-            else
-            {
-                DepositoTextBox.ReadOnly = false;
-            }
         }
 
         private void RegistroCliente_Load(object sender, EventArgs e)

@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ImprimirButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ClientesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,21 +80,21 @@
             "Codigo"});
             this.FiltroComboBox.Location = new System.Drawing.Point(290, 29);
             this.FiltroComboBox.Name = "FiltroComboBox";
-            this.FiltroComboBox.Size = new System.Drawing.Size(218, 23);
+            this.FiltroComboBox.Size = new System.Drawing.Size(156, 23);
             this.FiltroComboBox.TabIndex = 9;
             // 
             // CriterioTextBox
             // 
-            this.CriterioTextBox.Location = new System.Drawing.Point(518, 30);
+            this.CriterioTextBox.Location = new System.Drawing.Point(452, 30);
             this.CriterioTextBox.Name = "CriterioTextBox";
-            this.CriterioTextBox.Size = new System.Drawing.Size(330, 21);
+            this.CriterioTextBox.Size = new System.Drawing.Size(216, 21);
             this.CriterioTextBox.TabIndex = 10;
             // 
             // ConsultarButton
             // 
-            this.ConsultarButton.Location = new System.Drawing.Point(856, 27);
+            this.ConsultarButton.Location = new System.Drawing.Point(674, 26);
             this.ConsultarButton.Name = "ConsultarButton";
-            this.ConsultarButton.Size = new System.Drawing.Size(194, 27);
+            this.ConsultarButton.Size = new System.Drawing.Size(186, 27);
             this.ConsultarButton.TabIndex = 11;
             this.ConsultarButton.Text = "Consultar";
             this.ConsultarButton.UseVisualStyleBackColor = true;
@@ -129,11 +130,21 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(513, 10);
+            this.label4.Location = new System.Drawing.Point(449, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 15);
             this.label4.TabIndex = 15;
             this.label4.Text = "Criterio";
+            // 
+            // ImprimirButton
+            // 
+            this.ImprimirButton.Location = new System.Drawing.Point(866, 25);
+            this.ImprimirButton.Name = "ImprimirButton";
+            this.ImprimirButton.Size = new System.Drawing.Size(184, 27);
+            this.ImprimirButton.TabIndex = 16;
+            this.ImprimirButton.Text = "Imprimir Reporte";
+            this.ImprimirButton.UseVisualStyleBackColor = true;
+            this.ImprimirButton.Click += new System.EventHandler(this.ImprimirButton_Click);
             // 
             // ConsultaClientes
             // 
@@ -141,6 +152,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(1066, 519);
+            this.Controls.Add(this.ImprimirButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -153,7 +165,7 @@
             this.Controls.Add(this.ClientesDataGridView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ConsultaClientes";
-            this.Text = "Consulta (Clientes)";
+            this.Text = "Consulta Clientes (Ferreteria Nelson)";
             ((System.ComponentModel.ISupportInitialize)(this.ClientesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -172,5 +184,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button ImprimirButton;
     }
 }

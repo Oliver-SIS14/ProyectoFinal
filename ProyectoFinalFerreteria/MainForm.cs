@@ -64,21 +64,35 @@ namespace ProyectoFinalFerreteria
 
         private void VentasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form formulario = new ReporteVentasDiarias(ReporteVentasDiarias.ListaFacturas);
+        /*    Form formulario = new ReporteVentasDiarias(ReporteVentasDiarias.ListaFacturas);
             formulario.MdiParent = this;
-            formulario.Show();
+            formulario.Show();*/
         }
 
         private void ClientesToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            Form formulario = new ReporteClientesConDeudas(ReporteClientesConDeudas.ListaClientes);
+         /*   Form formulario = new ReporteClientesConDeudas(ReporteClientesConDeudas.ListaClientes);
             formulario.MdiParent = this;
-            formulario.Show();
+            formulario.Show();*/
         }
 
         private void ArticulosMasVendidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formulario = new ReporteArticulosPocoStock(ReporteArticulosPocoStock.ListaArticulos);
+        /*    Form formulario = new ReporteArticulosPocoStock(ReporteArticulosPocoStock.ListaArticulos);
+            formulario.MdiParent = this;
+            formulario.Show();*/
+        }
+
+        private void CobrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formulario = new RegistroCobro();
+            formulario.MdiParent = this;
+            formulario.Show();
+        }
+
+        private void UsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formulario = new ConsultaUsuarios();
             formulario.MdiParent = this;
             formulario.Show();
         }

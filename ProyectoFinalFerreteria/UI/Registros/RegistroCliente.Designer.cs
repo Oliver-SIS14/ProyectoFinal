@@ -36,7 +36,6 @@
             this.DireccionTextBox = new System.Windows.Forms.TextBox();
             this.ApellidoTextBox = new System.Windows.Forms.TextBox();
             this.NombreTextBox = new System.Windows.Forms.TextBox();
-            this.BalanceTextBox = new System.Windows.Forms.TextBox();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
@@ -44,7 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -52,12 +50,8 @@
             this.BuscarButton = new System.Windows.Forms.Button();
             this.TelefonoMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.CelularMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.DepositoTextBox = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.LimiteCreditoTextBox = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.UsuarioTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
@@ -120,21 +114,11 @@
             this.NombreTextBox.TabIndex = 18;
             this.NombreTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreTextBox_KeyPress);
             // 
-            // BalanceTextBox
-            // 
-            this.BalanceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BalanceTextBox.Location = new System.Drawing.Point(122, 310);
-            this.BalanceTextBox.Name = "BalanceTextBox";
-            this.BalanceTextBox.ReadOnly = true;
-            this.BalanceTextBox.Size = new System.Drawing.Size(418, 21);
-            this.BalanceTextBox.TabIndex = 21;
-            this.BalanceTextBox.TextChanged += new System.EventHandler(this.BalanceTextBox_TextChanged);
-            // 
             // NuevoButton
             // 
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.NuevoIcon__1_;
-            this.NuevoButton.Location = new System.Drawing.Point(18, 381);
+            this.NuevoButton.Location = new System.Drawing.Point(22, 295);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(150, 60);
             this.NuevoButton.TabIndex = 22;
@@ -147,7 +131,7 @@
             // 
             this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuardarButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.GuardarIcon__1_;
-            this.GuardarButton.Location = new System.Drawing.Point(202, 381);
+            this.GuardarButton.Location = new System.Drawing.Point(204, 295);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(150, 60);
             this.GuardarButton.TabIndex = 23;
@@ -160,7 +144,7 @@
             // 
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.borradoricon;
-            this.EliminarButton.Location = new System.Drawing.Point(390, 381);
+            this.EliminarButton.Location = new System.Drawing.Point(390, 295);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(150, 60);
             this.EliminarButton.TabIndex = 24;
@@ -204,15 +188,6 @@
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 28;
             this.label4.Text = "Cedula";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(63, 315);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Balance";
             // 
             // label6
             // 
@@ -281,24 +256,6 @@
             this.CelularMaskedTextBox.Size = new System.Drawing.Size(418, 20);
             this.CelularMaskedTextBox.TabIndex = 37;
             // 
-            // DepositoTextBox
-            // 
-            this.DepositoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DepositoTextBox.Location = new System.Drawing.Point(122, 283);
-            this.DepositoTextBox.Name = "DepositoTextBox";
-            this.DepositoTextBox.Size = new System.Drawing.Size(418, 21);
-            this.DepositoTextBox.TabIndex = 38;
-            this.DepositoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DepositoTextBox_KeyPress);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(59, 288);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 13);
-            this.label10.TabIndex = 39;
-            this.label10.Text = "Deposito";
-            // 
             // EmailTextBox
             // 
             this.EmailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -316,28 +273,10 @@
             this.label11.TabIndex = 41;
             this.label11.Text = "Email";
             // 
-            // LimiteCreditoTextBox
-            // 
-            this.LimiteCreditoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LimiteCreditoTextBox.Location = new System.Drawing.Point(122, 337);
-            this.LimiteCreditoTextBox.Name = "LimiteCreditoTextBox";
-            this.LimiteCreditoTextBox.Size = new System.Drawing.Size(418, 21);
-            this.LimiteCreditoTextBox.TabIndex = 42;
-            this.LimiteCreditoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LimiteCreditoTextBox_KeyPress);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(15, 342);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(101, 13);
-            this.label12.TabIndex = 43;
-            this.label12.Text = "Limite de credito";
-            // 
             // UsuarioTextBox
             // 
             this.UsuarioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsuarioTextBox.Location = new System.Drawing.Point(248, 459);
+            this.UsuarioTextBox.Location = new System.Drawing.Point(248, 384);
             this.UsuarioTextBox.Name = "UsuarioTextBox";
             this.UsuarioTextBox.ReadOnly = true;
             this.UsuarioTextBox.Size = new System.Drawing.Size(167, 20);
@@ -347,7 +286,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(185, 460);
+            this.label13.Location = new System.Drawing.Point(185, 385);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 15);
             this.label13.TabIndex = 45;
@@ -358,15 +297,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ClientSize = new System.Drawing.Size(549, 491);
+            this.ClientSize = new System.Drawing.Size(549, 408);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.UsuarioTextBox);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.LimiteCreditoTextBox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.EmailTextBox);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.DepositoTextBox);
             this.Controls.Add(this.CelularMaskedTextBox);
             this.Controls.Add(this.TelefonoMaskedTextBox);
             this.Controls.Add(this.BuscarButton);
@@ -374,7 +309,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -382,7 +316,6 @@
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.NuevoButton);
-            this.Controls.Add(this.BalanceTextBox);
             this.Controls.Add(this.NombreTextBox);
             this.Controls.Add(this.ApellidoTextBox);
             this.Controls.Add(this.DireccionTextBox);
@@ -391,7 +324,7 @@
             this.Controls.Add(this.IDNumericUpDown);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "RegistroCliente";
-            this.Text = "Registro (Clientes)";
+            this.Text = "Registro Clientes (Ferreteria Nelson)";
             this.Load += new System.EventHandler(this.RegistroCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDNumericUpDown)).EndInit();
@@ -407,7 +340,6 @@
         private System.Windows.Forms.MaskedTextBox CedulaMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox CodigoMaskedTextBox;
         private System.Windows.Forms.TextBox DireccionTextBox;
-        private System.Windows.Forms.TextBox BalanceTextBox;
         private System.Windows.Forms.TextBox NombreTextBox;
         private System.Windows.Forms.TextBox ApellidoTextBox;
         private System.Windows.Forms.Button NuevoButton;
@@ -417,7 +349,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -425,12 +356,8 @@
         private System.Windows.Forms.Button EliminarButton;
         private System.Windows.Forms.MaskedTextBox CelularMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox TelefonoMaskedTextBox;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox DepositoTextBox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox LimiteCreditoTextBox;
         private System.Windows.Forms.TextBox UsuarioTextBox;
         private System.Windows.Forms.Label label13;
     }

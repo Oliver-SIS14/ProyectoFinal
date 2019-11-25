@@ -22,7 +22,24 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+           /* RepositorioBase<Usuario> repo = new RepositorioBase<Usuario>();
+            
+            var Lista = repo.GetList(c => true);
 
+            UsuarioComboBox.DataSource = Lista;
+            UsuarioComboBox.ValueMember = "IdUsuario";
+            UsuarioComboBox.DisplayMember = "User";
+            string id = UsuarioComboBox.SelectedValue.ToString();
+
+            Usuario user = repo.Buscar(Convert.ToInt32(id));
+            if(user.Tipo == 0)
+            {
+                RegistrarseButton.Enabled = false;
+            }
+            else
+            {
+                RegistrarseButton.Enabled = true;
+            }*/
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -32,6 +49,21 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
         private void Login_Load(object sender, EventArgs e)
         {
+            RepositorioBase<Usuario> repo2 = new RepositorioBase<Usuario>();
+
+            var Lista2 = repo2.GetList(p => true);
+            if(Lista2.Count == 0)
+            {
+                Usuario u = new Usuario();
+
+                u.Contraseña = "1234";
+                u.User = "Admin";
+                u.Tipo = 1;
+                repo2.Guardar(u);
+            }
+
+
+
             RepositorioBase<Usuario> repo = new RepositorioBase<Usuario>();
 
             var Lista = repo.GetList(c => true);
@@ -62,6 +94,61 @@ namespace ProyectoFinalFerreteria.UI.Registros
                 MessageBox.Show("Contraseña incorrecta","Fallo",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
                 
+        }
+
+        private void RegistrarseButton_Click(object sender, EventArgs e)
+        {
+            Form formulario = new RegistroUsuario();
+            formulario.Show();
+        }
+
+        private void RegistrarseButton_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void RegistrarseButton_VisibleChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ContraseñaTextBox_TextChanged(object sender, EventArgs e)
+        {
+            RepositorioBase<Usuario> repo = new RepositorioBase<Usuario>();
+            string id = UsuarioComboBox.SelectedValue.ToString();
+
+            Usuario user = repo.Buscar(Convert.ToInt32(id));
+            if (user.Tipo == 0)
+            {
+                RegistrarseButton.Enabled = false;
+            }
+            else
+            {
+                RegistrarseButton.Enabled = true;
+            }
+
+        }
+
+        private void UsuarioComboBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox1.Checked = true;
+            RepositorioBase<Usuario> repo = new RepositorioBase<Usuario>();
+            string id = UsuarioComboBox.SelectedValue.ToString();
+
+            Usuario user = repo.Buscar(Convert.ToInt32(id));
+            if (user.Tipo == 0)
+            {
+                RegistrarseButton.Enabled = false;
+            }
+            else
+            {
+                RegistrarseButton.Enabled = true;
+            }
+
         }
     }
 }
