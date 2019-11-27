@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C480F1FD-A2B2-48EA-BBD3-F6A1F3ED843D}</ProjectGuid>
+    <ProjectGuid>{708A8064-FBF3-49F7-8075-D2EB2564D0E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProyectoFinalFerreteriaTests</RootNamespace>
-    <AssemblyName>ProyectoFinalFerreteriaTests</AssemblyName>
+    <RootNamespace>BLLTests</RootNamespace>
+    <AssemblyName>BLLTests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -64,19 +64,24 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="BLL\RepositorioBaseTests.cs" />
-    <Compile Include="BLL\RepositorioClienteTests.cs" />
-    <Compile Include="BLL\RepositorioFacturaTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BLLFacturacionTests.cs" />
+    <Compile Include="BLLUsuarioTests.cs" />
+    <Compile Include="BLLArticulosTest.cs" />
+    <Compile Include="BLLClientesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProyectoFinalFerreteria\ProyectoFinalFerreteria.csproj">
-      <Project>{01E20F56-77E0-45C5-B19D-630C5D245AF1}</Project>
-      <Name>ProyectoFinalFerreteria</Name>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{5E99CA19-6051-4255-9592-2ED5FB122698}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{6B4A3489-A90D-46F4-B8C1-0A666332779D}</Project>
+      <Name>Entidades</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

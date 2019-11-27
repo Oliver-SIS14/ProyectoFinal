@@ -56,6 +56,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
             cliente.Cedula = CedulaMaskedTextBox.Text;
             cliente.Direccion = DireccionTextBox.Text;
             cliente.Email = EmailTextBox.Text;
+            cliente.LimiteCredito = 5000;
            // if (string.IsNullOrWhiteSpace(BalanceTextBox.Text))
             
              //  BalanceTextBox.Text = "0";

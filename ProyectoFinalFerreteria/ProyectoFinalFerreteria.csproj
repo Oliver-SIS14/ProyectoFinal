@@ -64,20 +64,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\IRepository.cs" />
-    <Compile Include="BLL\RepositorioBase.cs" />
-    <Compile Include="BLL\RepositorioCliente.cs" />
-    <Compile Include="BLL\RepositorioFactura.cs" />
-    <Compile Include="DAL\Contexto.cs" />
-    <Compile Include="Entidades\Articulos.cs" />
-    <Compile Include="Entidades\ClienteDetalle.cs" />
-    <Compile Include="Entidades\Clientes.cs" />
-    <Compile Include="Entidades\Cobro.cs" />
-    <Compile Include="Entidades\FacturaDetalle.cs" />
-    <Compile Include="Entidades\Facturas.cs" />
-    <Compile Include="Entidades\ImpresionFactura.cs" />
-    <Compile Include="Entidades\Usuario.cs" />
-    <Compile Include="Entidades\Validacion.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,7 +249,20 @@
   <ItemGroup>
     <None Include="Resources\Captura de pantalla %281%29.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{5e99ca19-6051-4255-9592-2ed5fb122698}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{e72aa2ba-9887-498d-a5d8-58182e4da4d3}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{6b4a3489-a90d-46f4-b8c1-0a666332779d}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-error-de-impresora-30.png" />
     <None Include="Resources\icons8-google-web-search-24.png" />
@@ -278,8 +277,6 @@
     <None Include="Resources\Asset_FNelsonArreglada.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DAL\Scripts\NelsonScript.sql" />
-    <Content Include="DAL\Scripts\ProyectoFinalScript.sql" />
     <None Include="Resources\icons8-google-web-search-241.png" />
     <None Include="Resources\BuscarIcon.png" />
     <None Include="Resources\borradoricon1.png" />

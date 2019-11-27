@@ -4,6 +4,8 @@ go
 
 use Nelson
 
+select *from Usuarios
+
 /*create view ClientesConDeudas as
 	select Clienteid,Codigo,Nombres,Apellidos,LimiteCredito,Balance from Clientes where Balance > 0
 	

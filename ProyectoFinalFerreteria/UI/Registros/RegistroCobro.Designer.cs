@@ -48,6 +48,8 @@
             this.EliminarButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
+            this.ClienteTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.IDNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDClienteNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
@@ -62,7 +64,7 @@
             // 
             // IDClienteNumericUpDown
             // 
-            this.IDClienteNumericUpDown.Location = new System.Drawing.Point(140, 100);
+            this.IDClienteNumericUpDown.Location = new System.Drawing.Point(140, 92);
             this.IDClienteNumericUpDown.Name = "IDClienteNumericUpDown";
             this.IDClienteNumericUpDown.Size = new System.Drawing.Size(276, 20);
             this.IDClienteNumericUpDown.TabIndex = 1;
@@ -70,14 +72,14 @@
             // 
             // DepositoTextBox
             // 
-            this.DepositoTextBox.Location = new System.Drawing.Point(140, 126);
+            this.DepositoTextBox.Location = new System.Drawing.Point(140, 144);
             this.DepositoTextBox.Name = "DepositoTextBox";
             this.DepositoTextBox.Size = new System.Drawing.Size(276, 20);
             this.DepositoTextBox.TabIndex = 2;
             // 
             // BalanceTextBox
             // 
-            this.BalanceTextBox.Location = new System.Drawing.Point(140, 152);
+            this.BalanceTextBox.Location = new System.Drawing.Point(140, 170);
             this.BalanceTextBox.Name = "BalanceTextBox";
             this.BalanceTextBox.ReadOnly = true;
             this.BalanceTextBox.Size = new System.Drawing.Size(276, 20);
@@ -86,7 +88,7 @@
             // 
             // LimiteCreditoTextBox
             // 
-            this.LimiteCreditoTextBox.Location = new System.Drawing.Point(140, 178);
+            this.LimiteCreditoTextBox.Location = new System.Drawing.Point(140, 196);
             this.LimiteCreditoTextBox.Name = "LimiteCreditoTextBox";
             this.LimiteCreditoTextBox.Size = new System.Drawing.Size(276, 20);
             this.LimiteCreditoTextBox.TabIndex = 4;
@@ -103,7 +105,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 102);
+            this.label2.Location = new System.Drawing.Point(12, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 6;
@@ -112,7 +114,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 129);
+            this.label3.Location = new System.Drawing.Point(13, 147);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 7;
@@ -121,7 +123,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 155);
+            this.label4.Location = new System.Drawing.Point(13, 173);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 8;
@@ -130,7 +132,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 181);
+            this.label5.Location = new System.Drawing.Point(14, 196);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 13);
             this.label5.TabIndex = 9;
@@ -143,7 +145,7 @@
             // UsuarioTextBox
             // 
             this.UsuarioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsuarioTextBox.Location = new System.Drawing.Point(157, 299);
+            this.UsuarioTextBox.Location = new System.Drawing.Point(157, 308);
             this.UsuarioTextBox.Name = "UsuarioTextBox";
             this.UsuarioTextBox.ReadOnly = true;
             this.UsuarioTextBox.Size = new System.Drawing.Size(194, 20);
@@ -152,7 +154,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(100, 302);
+            this.label6.Location = new System.Drawing.Point(101, 311);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 46;
@@ -190,7 +192,7 @@
             // EliminarButton
             // 
             this.EliminarButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.borradoricon1;
-            this.EliminarButton.Location = new System.Drawing.Point(296, 219);
+            this.EliminarButton.Location = new System.Drawing.Point(296, 239);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(120, 63);
             this.EliminarButton.TabIndex = 12;
@@ -202,7 +204,7 @@
             // GuardarButton
             // 
             this.GuardarButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.GuardarIcon__1_1;
-            this.GuardarButton.Location = new System.Drawing.Point(157, 219);
+            this.GuardarButton.Location = new System.Drawing.Point(157, 239);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(120, 63);
             this.GuardarButton.TabIndex = 11;
@@ -214,7 +216,7 @@
             // NuevoButton
             // 
             this.NuevoButton.Image = global::ProyectoFinalFerreteria.Properties.Resources.NuevoIcon__1_1;
-            this.NuevoButton.Location = new System.Drawing.Point(17, 219);
+            this.NuevoButton.Location = new System.Drawing.Point(16, 239);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(120, 63);
             this.NuevoButton.TabIndex = 10;
@@ -223,11 +225,30 @@
             this.NuevoButton.UseVisualStyleBackColor = true;
             this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
+            // ClienteTextBox
+            // 
+            this.ClienteTextBox.Location = new System.Drawing.Point(140, 118);
+            this.ClienteTextBox.Name = "ClienteTextBox";
+            this.ClienteTextBox.ReadOnly = true;
+            this.ClienteTextBox.Size = new System.Drawing.Size(276, 20);
+            this.ClienteTextBox.TabIndex = 49;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 121);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 13);
+            this.label8.TabIndex = 50;
+            this.label8.Text = "Nombre";
+            // 
             // RegistroCobro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 331);
+            this.ClientSize = new System.Drawing.Size(440, 340);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.ClienteTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.FechaDateTimePicker);
             this.Controls.Add(this.label6);
@@ -279,5 +300,7 @@
         private System.Windows.Forms.TextBox UsuarioTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker FechaDateTimePicker;
+        private System.Windows.Forms.TextBox ClienteTextBox;
+        private System.Windows.Forms.Label label8;
     }
 }

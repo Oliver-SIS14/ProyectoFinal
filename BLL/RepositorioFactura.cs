@@ -1,10 +1,5 @@
 ﻿using ProyectoFinalFerreteria.Entidades;
-using ProyectoFinalFerreteria.UI.Registros;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProyectoFinalFerreteria.BLL
 {
@@ -19,7 +14,7 @@ namespace ProyectoFinalFerreteria.BLL
 
             Facturas factura = repof.Buscar(id);
             Clientes cliente = repo.Buscar(IdCliente);
-            cliente.Balance -= factura.TotalGeneral;
+            cliente.Balance = factura.TotalGeneral;
 
             foreach (var item in factura.Articulos)
             {

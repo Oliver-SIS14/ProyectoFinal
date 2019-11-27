@@ -188,6 +188,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
 
             if(cliente.LimiteCredito == 0)
             {
+                cliente.LimiteCredito = 5000;
                 MessageBox.Show("El cliente ha excedido su limite de credito", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 paso = false;
             }
@@ -207,10 +208,10 @@ namespace ProyectoFinalFerreteria.UI.Registros
             bool paso = true;
             RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
 
-            if (ClienteComboBox.Enabled == true && string.IsNullOrWhiteSpace(ClienteComboBox.Text))
+            if (string.IsNullOrWhiteSpace(ClienteComboBox.Text))
             {
-                MyErrorProvider.SetError(ClienteComboBox, "Seleccione un cliente");
-                ClienteComboBox.Focus();
+                MyErrorProvider.SetError(ClienteComboBox, "Agregue un cliente");
+                AgregarClienteButton.Focus();
                 paso = false;
             }
 

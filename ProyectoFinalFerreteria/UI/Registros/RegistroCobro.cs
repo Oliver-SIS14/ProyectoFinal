@@ -42,7 +42,7 @@ namespace ProyectoFinalFerreteria.UI.Registros
             if (string.IsNullOrWhiteSpace(DepositoTextBox.Text))
                 DepositoTextBox.Text = "0";
 
-            cliente.LimiteCredito = Convert.ToDecimal(LimiteCreditoTextBox.Text) - Convert.ToDecimal(BalanceTextBox.Text) + Convert.ToDecimal(DepositoTextBox.Text);
+            cliente.LimiteCredito = 5000 + Convert.ToDecimal(LimiteCreditoTextBox.Text) - Convert.ToDecimal(BalanceTextBox.Text) + Convert.ToDecimal(DepositoTextBox.Text);
             cliente.Balance = Convert.ToDecimal(BalanceTextBox.Text) - Convert.ToDecimal(DepositoTextBox.Text);
             repo.Modificar(cliente);
             //   
@@ -215,25 +215,35 @@ namespace ProyectoFinalFerreteria.UI.Registros
         {
             RepositorioBase<Clientes> repo = new RepositorioBase<Clientes>();
 
-            if((int)IDClienteNumericUpDown.Value != 0)
+            if ((int)IDClienteNumericUpDown.Value != 0)
             {
-            int id = (int)IDClienteNumericUpDown.Value;
+                int id = (int)IDClienteNumericUpDown.Value;
 
-            Clientes cliente = repo.Buscar(id);
+                Clientes cliente = repo.Buscar(id);
+                if (cliente != null)
+                {
+                    BalanceTextBox.Text = cliente.Balance.ToString();
+                    ClienteTextBox.Text = cliente.Nombres + " " + cliente.Apellidos;
+                    if (string.IsNullOrWhiteSpace(DepositoTextBox.Text))
+                    {
+                        DepositoTextBox.Text = "0";
+                    }
 
-            BalanceTextBox.Text = cliente.Balance.ToString();
+                    if (cliente.LimiteCredito == 0)
+                        LimiteCreditoTextBox.Text = "0";
+                    else
+                        LimiteCreditoTextBox.Text = cliente.LimiteCredito.ToString();
 
-            if (string.IsNullOrWhiteSpace(DepositoTextBox.Text))
-            {
-                DepositoTextBox.Text = "0";
+                }
+                else
+                {
+                    BalanceTextBox.Text = string.Empty;
+                    LimiteCreditoTextBox.Text = string.Empty;
+                    ClienteTextBox.Text = string.Empty;
+
+                }
             }
 
-            if (cliente.LimiteCredito == 0)
-                LimiteCreditoTextBox.Text = "0";
-            else
-                LimiteCreditoTextBox.Text = cliente.LimiteCredito.ToString();
-
-            }
 
         }
     }
